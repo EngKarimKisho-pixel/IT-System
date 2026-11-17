@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة تحكم IT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF1F6;
+    --sidebar:#0B1526;
+    --sidebar-hover:#16233B;
+    --sidebar-text:#9AAAC4;
+    --sidebar-text-active:#FFFFFF;
+    --accent:#14B8A6;
+    --accent-dark:#0B7C6F;
+    --accent-soft:#E3F7F3;
+    --amber:#F59E0B;
+    --amber-soft:#FEF3E0;
+    --red:#EF4444;
+    --red-soft:#FDECEC;
+    --card:#FFFFFF;
+    --border:#E3E7EF;
+    --text:#101828;
+    --text-2:#5A6478;
+    --text-3:#9AA3B5;
+    --radius:14px;
+    --mono:'IBM Plex Mono', monospace;
+    --font:'Tajawal', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+  }
+  ::-webkit-scrollbar{width:8px;height:8px;}
+  ::-webkit-scrollbar-thumb{background:#C7CEDB;border-radius:8px;}
+
+  /* Sidebar */
+  .sidebar{
+    width:230px;
+    flex-shrink:0;
+    background:var(--sidebar);
+    min-height:100vh;
+    padding:20px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+  }
+  .brand-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 8px 18px 8px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    margin-bottom:14px;
+  }
+  .brand-logo{
+    width:42px;height:42px;border-radius:10px;
+    background:linear-gradient(160deg,var(--accent),var(--accent-dark));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:900;font-size:16px;flex-shrink:0;
+    overflow:hidden;
+  }
+  .brand-logo img{width:100%;height:100%;object-fit:cover;}
+  .brand-name{color:#fff;font-weight:700;font-size:14px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:140px;}
+  .brand-sub{color:var(--sidebar-text);font-size:11px;font-family:var(--mono);letter-spacing:.5px;}
+
+  .navitem{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 12px;border-radius:10px;
+    color:var(--sidebar-text);
+    cursor:pointer;font-size:14px;font-weight:500;
+    border:none;background:transparent;width:100%;text-align:right;
+    font-family:var(--font);
+    transition:background .15s;
+  }
+  .navitem svg{flex-shrink:0;width:18px;height:18px;stroke:currentColor;}
+  .navitem:hover{background:var(--sidebar-hover);color:#fff;}
+  .navitem.active{background:var(--accent);color:#fff;}
+  .nav-count{
+    margin-inline-start:auto;font-family:var(--mono);font-size:11px;
+    background:rgba(255,255,255,.1);padding:2px 7px;border-radius:20px;
+  }
+  .navitem.active .nav-count{background:rgba(255,255,255,.25);}
+
+  /* Main */
+  .main{flex:1;min-width:0;padding:28px 34px 60px;}
+  .page{display:none;animation:fadein .25s ease;}
+  .page.active{display:block;}
+  @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  .page-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px;}
+  .page-title{font-size:22px;font-weight:900;margin:0;}
+  .page-desc{font-size:13px;color:var(--text-2);margin:4px 0 0;}
+
+  /* Cards */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;}
+  .grid{display:grid;gap:16px;}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-5{grid-template-columns:repeat(5,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:1100px){.grid-5{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:900px){.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+
+  .stat-label{font-size:12px;color:var(--text-2);font-weight:500;}
+  .stat-value{font-family:var(--mono);font-size:30px;font-weight:600;margin-top:6px;letter-spacing:-1px;}
+  .stat-row{display:flex;align-items:center;justify-content:space-between;}
+  .stat-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .stat-icon svg{width:19px;height:19px;}
+
+  .low-tag{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--red-soft);color:var(--red);}
+
+  /* Buttons/inputs */
+  button{font-family:var(--font);}
+  .btn{
+    background:var(--accent);color:#fff;border:none;border-radius:9px;
+    padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .btn:hover{background:var(--accent-dark);}
+  .btn.ghost{background:#fff;color:var(--text);border:1px solid var(--border);}
+  .btn.ghost:hover{background:#F5F7FA;}
+  .btn.danger{background:var(--red-soft);color:var(--red);}
+  .btn.danger:hover{background:#FADCDC;}
+  .btn.sm{padding:6px 10px;font-size:12px;border-radius:7px;}
+  .btn svg{width:15px;height:15px;}
+
+  label.field-label{display:block;font-size:12.5px;font-weight:700;color:var(--text-2);margin-bottom:6px;}
+  input[type=text],input[type=date],input[type=number],select,textarea{
+    width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:9px;
+    font-family:var(--font);font-size:14px;background:#fff;color:var(--text);
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);}
+  .field{margin-bottom:14px;}
+
+  .chip-group{display:flex;gap:10px;flex-wrap:wrap;}
+  .chip{
+    border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;cursor:pointer;
+    display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--text-2);
+    user-select:none;flex:1;min-width:120px;justify-content:center;background:#fff;
+  }
+  .chip svg{width:18px;height:18px;}
+  .chip.checked{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-dark);}
+  .chip .box{width:16px;height:16px;border:1.5px solid var(--text-3);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .chip.checked .box{background:var(--accent);border-color:var(--accent);}
+  .chip.checked .box svg{width:10px;height:10px;stroke:#fff;}
+
+  /* Table */
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{text-align:right;color:var(--text-2);font-weight:700;font-size:12px;padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap;}
+  td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+  tr:last-child td{border-bottom:none;}
+  .code-pill{font-family:var(--mono);font-size:12px;background:#F0F2F7;padding:3px 9px;border-radius:6px;color:var(--text-2);border:1px dashed var(--text-3);}
+  .dev-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--accent-soft);color:var(--accent-dark);font-weight:700;margin-left:4px;}
+  .dev-toggle-group{display:flex;gap:5px;flex-wrap:wrap;}
+  .dev-toggle{
+    display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;
+    padding:4px 9px;border-radius:20px;border:1.5px dashed var(--border);
+    background:#fff;color:var(--text-3);cursor:pointer;font-family:var(--font);
+    transition:all .12s;
+  }
+  .dev-toggle svg{width:11px;height:11px;flex-shrink:0;}
+  .dev-toggle:hover{border-color:var(--text-3);color:var(--text-2);}
+  .dev-toggle.on{background:var(--accent-soft);color:var(--accent-dark);border:1.5px solid var(--accent);}
+  .dev-toggle.on:hover{background:#D7F3EE;}
+  .empty{text-align:center;padding:40px 20px;color:var(--text-3);font-size:13.5px;}
+  .empty svg{width:34px;height:34px;stroke:var(--text-3);margin-bottom:8px;}
+
+  .inline-edit{border:1px solid transparent;background:transparent;padding:6px 8px;border-radius:6px;font-family:var(--font);font-size:13.5px;width:100%;}
+  .inline-edit:hover,.inline-edit:focus{border-color:var(--border);background:#fff;}
+
+  .task-item{display:flex;align-items:flex-start;gap:12px;padding:13px 6px;border-bottom:1px solid var(--border);}
+  .task-item:last-child{border-bottom:none;}
+  .task-date{font-family:var(--mono);font-size:11px;color:var(--text-3);white-space:nowrap;padding-top:2px;}
+  .task-cat{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:3px;}
+  .task-desc{font-size:14px;line-height:1.5;color:var(--text);}
+  .task-emp{font-size:12px;color:var(--text-2);margin-top:2px;}
+
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:#fff;padding:11px 20px;border-radius:10px;font-size:13.5px;opacity:0;transition:all .25s;pointer-events:none;z-index:50;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(10,15,25,.5);display:none;align-items:center;justify-content:center;z-index:40;padding:20px;}
+  .modal-overlay.show{display:flex;}
+  .modal{background:#fff;border-radius:16px;padding:24px;width:100%;max-width:380px;}
+  .modal h3{margin:0 0 16px;font-size:16px;}
+
+  .section-title{font-size:15px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:8px;}
+  .section-title svg{width:17px;height:17px;stroke:var(--accent-dark);}
+
+  .filter-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px;}
+  .filter-row .field{margin-bottom:0;min-width:150px;}
+
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+  .bar-label{width:90px;font-size:12px;color:var(--text-2);flex-shrink:0;font-family:var(--mono);}
+  .bar-track{flex:1;height:20px;background:#F0F2F7;border-radius:6px;overflow:hidden;}
+  .bar-fill{height:100%;background:var(--accent);border-radius:6px;}
+  .bar-count{width:26px;text-align:left;font-family:var(--mono);font-size:12px;font-weight:600;}
+
+  .loading-wrap{display:flex;align-items:center;justify-content:center;min-height:60vh;color:var(--text-3);font-size:14px;}
+
+  /* ---------------- Print / PDF report ---------------- */
+  #printReport{display:none;}
+  @media print{
+    body *{visibility:hidden;}
+    #printReport, #printReport *{visibility:visible;}
+    #printReport{
+      display:block;position:absolute;inset:0;width:100%;
+      font-family:'Tajawal', sans-serif;color:#101828;direction:rtl;
+    }
+    @page{margin:14mm;}
+  }
+  .pr-header{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #14B8A6;padding-bottom:14px;margin-bottom:22px;}
+  .pr-brand{display:flex;align-items:center;gap:12px;}
+  .pr-logo{width:52px;height:52px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#0B1526;display:flex;align-items:center;justify-content:center;}
+  .pr-logo img{width:100%;height:100%;object-fit:cover;}
+  .pr-brand-name{font-size:19px;font-weight:900;margin:0;}
+  .pr-brand-sub{font-size:11px;color:#5A6478;font-family:'IBM Plex Mono',monospace;letter-spacing:.5px;margin-top:2px;}
+  .pr-title-block{text-align:left;}
+  .pr-title{font-size:16px;font-weight:800;margin:0;color:#0B7C6F;}
+  .pr-meta{font-size:11px;color:#5A6478;font-family:'IBM Plex Mono',monospace;margin-top:3px;}
+
+  .pr-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
+  .pr-stat{border:1px solid #E3E7EF;border-radius:10px;padding:12px 14px;}
+  .pr-stat-label{font-size:10.5px;color:#5A6478;font-weight:700;}
+  .pr-stat-value{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;margin-top:4px;}
+
+  .pr-section-title{font-size:13.5px;font-weight:800;margin:26px 0 10px;padding-bottom:6px;border-bottom:1.5px solid #E3E7EF;display:flex;align-items:center;gap:6px;}
+  .pr-section-title::before{content:'';width:4px;height:14px;background:#14B8A6;border-radius:2px;display:inline-block;}
+
+  .pr-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:11.5px;}
+  .pr-bar-label{width:110px;flex-shrink:0;font-family:'IBM Plex Mono',monospace;color:#5A6478;}
+  .pr-bar-track{flex:1;height:14px;background:#F0F2F7;border-radius:4px;overflow:hidden;}
+  .pr-bar-fill{height:100%;background:#14B8A6;}
+  .pr-bar-count{width:24px;text-align:left;font-family:'IBM Plex Mono',monospace;font-weight:700;}
+
+  .pr-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px;}
+  .pr-table th{text-align:right;background:#0B1526;color:#fff;font-weight:700;padding:7px 9px;font-size:10.5px;}
+  .pr-table td{padding:7px 9px;border-bottom:1px solid #E3E7EF;vertical-align:top;}
+  .pr-table tr:nth-child(even) td{background:#F8FAFC;}
+  .pr-cat-tag{display:inline-block;font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px;background:#E3F7F3;color:#0B7C6F;white-space:nowrap;}
+  .pr-footer{margin-top:26px;padding-top:10px;border-top:1px solid #E3E7EF;font-size:9.5px;color:#9AA3B5;text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="brand-box">
+    <div class="brand-logo" id="sbLogo">IT</div>
+    <div>
+      <div class="brand-name" id="sbName">اسم الشركة</div>
+      <div class="brand-sub">نظام إدارة IT</div>
+    </div>
+  </div>
+  <button class="navitem active" data-page="dashboard">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+    لوحة التحكم
+  </button>
+  <button class="navitem" data-page="newemp">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+    موظف جديد
+  </button>
+  <button class="navitem" data-page="employees">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    الموظفين
+    <span class="nav-count" id="navEmpCount">0</span>
+  </button>
+  <button class="navitem" data-page="tasks">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    المهام اليومية
+    <span class="nav-count" id="navTaskCount">0</span>
+  </button>
+  <button class="navitem" data-page="reports">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+    التقارير
+  </button>
+  <button class="navitem" data-page="settings">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    الإعدادات والمخزون
+  </button>
+</div>
+
+<div class="main">
+  <div id="loadingWrap" class="loading-wrap">جاري تحميل البيانات...</div>
+
+  <div id="appRoot" style="display:none;">
+
+    <div id="reconnectBanner" style="display:none;align-items:center;gap:12px;background:var(--amber-soft);border:1px solid var(--amber);border-radius:12px;padding:12px 16px;margin-bottom:18px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      <span style="flex:1;font-size:13.5px;color:#7C4A0B;">ملف البيانات متصل قبل كده، اضغط "سماح" عشان يرجع يحفظ فيه أوتوماتيك</span>
+      <button class="btn sm" onclick="reconnectAllow()">سماح بالوصول</button>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">لوحة التحكم</h1>
+          <p class="page-desc">نظرة عامة على المخزون والفريق والمهام</p>
+        </div>
+      </div>
+      <div class="grid grid-5" style="margin-bottom:18px;">
+        <div class="card">
+          <div class="stat-row">
+            <div>
+              <div class="stat-label">موبايلات بالمخزن</div>
+              <div class="stat-value" id="stMobiles">0</div>
+            </div>
+            <div class="stat-icon" style="background:var(--accent-soft);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            </div>
+          </div>
+          <div id="mobileLowTag"></div>
+        </div>
+        <div class="card">
+          <div class="stat-row">
+            <div>
+              <div class="stat-label">لابتوبات بالمخزن</div>
+              <div class="stat-value" id="stLaptops">0</div>
+            </div>
+            <div class="stat-icon" style="background:var(--amber-soft);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
+            </div>
+          </div>
+          <div id="laptopLowTag"></div>
+        </div>
+        <div class="card">
+          <div class="stat-row">
+            <div>
+              <div class="stat-label">خطوط بالمخزن</div>
+              <div class="stat-value" id="stLines">0</div>
+            </div>
+            <div class="stat-icon" style="background:#EEEDFE;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3C3489" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+          </div>
+          <div id="lineLowTag"></div>
+        </div>
+        <div class="card">
+          <div class="stat-row">
+            <div>
+              <div class="stat-label">عدد الموظفين</div>
+              <div class="stat-value" id="stEmployees">0</div>
+            </div>
+            <div class="stat-icon" style="background:#EEF1F6;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="stat-row">
+            <div>
+              <div class="stat-label">مهام اليوم</div>
+              <div class="stat-value" id="stTasksToday">0</div>
+            </div>
+            <div class="stat-icon" style="background:var(--red-soft);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          آخر المهام المسجلة
+        </div>
+        <div id="recentTasksList"></div>
+      </div>
+    </div>
+
+    <!-- NEW EMPLOYEE -->
+    <div class="page" id="page-newemp">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">موظف جديد</h1>
+          <p class="page-desc">سجّل اسم الموظف وحدد اللي هيستلمه</p>
+        </div>
+      </div>
+      <div class="card" style="max-width:520px;">
+        <div class="field">
+          <label class="field-label">اسم الموظف</label>
+          <input type="text" id="newEmpName" placeholder="مثال: أحمد محمد">
+        </div>
+        <div class="field">
+          <label class="field-label">هيستلم إيه؟</label>
+          <div class="chip-group">
+            <div class="chip" data-device="mobile">
+              <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              موبايل
+            </div>
+            <div class="chip" data-device="laptop">
+              <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              لابتوب
+            </div>
+            <div class="chip" data-device="other">
+              <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              خط
+            </div>
+          </div>
+        </div>
+        <button class="btn" id="saveNewEmpBtn" style="width:100%;justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          حفظ الموظف
+        </button>
+      </div>
+    </div>
+
+    <!-- EMPLOYEES -->
+    <div class="page" id="page-employees">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">الموظفين</h1>
+          <p class="page-desc">عدّل الكود والقسم لكل موظف مباشرة في الجدول</p>
+        </div>
+      </div>
+      <div class="card">
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>الكود</th>
+                <th>القسم</th>
+                <th>الأجهزة المستلمة</th>
+                <th>تاريخ الإضافة</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="employeesTbody"></tbody>
+          </table>
+        </div>
+        <div id="employeesEmpty" class="empty" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <div>لسه معندكش موظفين مسجلين</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TASKS -->
+    <div class="page" id="page-tasks">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">المهام اليومية</h1>
+          <p class="page-desc">سجّل كل مهمة IT بتعملها يوم بيوم</p>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns:340px 1fr;gap:16px;align-items:flex-start;">
+        <div class="card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            إضافة مهمة
+          </div>
+          <div class="field">
+            <label class="field-label">التاريخ</label>
+            <input type="date" id="taskDate">
+          </div>
+          <div class="field">
+            <label class="field-label">نوع المهمة</label>
+            <select id="taskCategory">
+              <option value="صيانة أجهزة">صيانة أجهزة</option>
+              <option value="شبكات">شبكات</option>
+              <option value="دعم فني">دعم فني</option>
+              <option value="تنصيب برامج">تنصيب برامج</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label">الموظف المرتبط (اختياري)</label>
+            <select id="taskEmployee">
+              <option value="">بدون تحديد</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label">تفاصيل المهمة</label>
+            <textarea id="taskDesc" rows="3" placeholder="اكتب اللي عملته..."></textarea>
+          </div>
+          <button class="btn" id="saveTaskBtn" style="width:100%;justify-content:center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            إضافة المهمة
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            كل المهام
+          </div>
+          <div id="allTasksList"></div>
+          <div id="tasksEmpty" class="empty" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <div>لسه مفيش مهام مسجلة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORTS -->
+    <div class="page" id="page-reports">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">التقارير</h1>
+          <p class="page-desc">المهام مجمّعة حسب النوع والتاريخ</p>
+        </div>
+        <button class="btn" id="exportPdfBtn" onclick="exportReportPDF()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="12" y2="11"/></svg>
+          تصدير تقرير PDF
+        </button>
+      </div>
+      <div class="filter-row">
+        <div class="field">
+          <label class="field-label">من تاريخ</label>
+          <input type="date" id="repFrom">
+        </div>
+        <div class="field">
+          <label class="field-label">إلى تاريخ</label>
+          <input type="date" id="repTo">
+        </div>
+        <button class="btn ghost sm" id="repClearBtn" style="height:38px;">مسح الفلتر</button>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+            المهام حسب النوع
+          </div>
+          <div id="repByCategory"></div>
+        </div>
+        <div class="card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            ملخص الفترة
+          </div>
+          <div id="repSummary"></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          المهام حسب اليوم
+        </div>
+        <div id="repByDate"></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="page" id="page-settings">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">الإعدادات والمخزون</h1>
+          <p class="page-desc">بيانات الشركة وكميات المخزون الحالية</p>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            بيانات الشركة
+          </div>
+          <div class="field">
+            <label class="field-label">اسم الشركة</label>
+            <input type="text" id="setCompanyName" placeholder="اسم الشركة">
+          </div>
+          <div class="field">
+            <label class="field-label">شعار الشركة</label>
+            <input type="file" id="setLogoInput" accept="image/*">
+          </div>
+          <button class="btn ghost" id="saveSettingsBtn">حفظ البيانات</button>
+        </div>
+        <div class="card">
+          <div class="section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+            كميات المخزون
+          </div>
+          <div class="field">
+            <label class="field-label">عدد الموبايلات</label>
+            <input type="number" id="setMobileStock" min="0">
+          </div>
+          <div class="field">
+            <label class="field-label">عدد اللابتوبات</label>
+            <input type="number" id="setLaptopStock" min="0">
+          </div>
+          <div class="field">
+            <label class="field-label">عدد الخطوط</label>
+            <input type="number" id="setLineStock" min="0">
+          </div>
+          <button class="btn ghost" id="saveStockBtn">تحديث المخزون</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          الحفظ التلقائي في ملف (مستحسن)
+        </div>
+        <p class="page-desc" id="fileStatusText" style="margin:0 0 14px;"></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn" id="connectFileBtn" onclick="connectNewFile()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            ربط / إنشاء ملف بيانات جديد
+          </button>
+          <button class="btn ghost" id="openFileBtn" onclick="openExistingFile()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            فتح ملف بيانات موجود
+          </button>
+          <button class="btn danger" id="disconnectFileBtn" style="display:none;" onclick="disconnectFile()">فصل الملف</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg>
+          نسخة احتياطية
+        </div>
+        <p class="page-desc" style="margin:0 0 14px;">استخدم النسخة الاحتياطية دي كمان لو عايز تنقل البيانات لجهاز تاني أو تحتفظ بنسخة إضافية بعيدة عن ملف البيانات المتصل.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn ghost" id="exportBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg>
+            تنزيل نسخة احتياطية
+          </button>
+          <label class="btn ghost" for="importInput" style="cursor:pointer;margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><path d="M12 3v12"/></svg>
+            استيراد نسخة احتياطية
+          </label>
+          <input type="file" id="importInput" accept="application/json" style="display:none;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal">
+    <h3 id="confirmText">هل أنت متأكد؟</h3>
+    <div style="display:flex;gap:10px;">
+      <button class="btn danger" id="confirmYes" style="flex:1;justify-content:center;">حذف</button>
+      <button class="btn ghost" id="confirmNo" style="flex:1;justify-content:center;">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div id="printReport"></div>
+
+<script>
+const trashIcon = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
+
+let settings = { companyName:'SimplexCNC', logoDataUrl:'', mobileStock:0, laptopStock:0, lineStock:0 };
+let employees = [];
+let tasks = [];
+let selectedDevices = { mobile:false, laptop:false, other:false };
+let pendingDelete = null;
+
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+const STORAGE_PREFIX = 'it-dash-';
+const FS_SUPPORTED = 'showSaveFilePicker' in window;
+let fileHandle = null;
+
+/* ---- IndexedDB: persist the file handle across reloads ---- */
+function idbOpen(){
+  return new Promise((res,rej)=>{
+    const req = indexedDB.open('it-dash-db', 1);
+    req.onupgradeneeded = ()=> req.result.createObjectStore('handles');
+    req.onsuccess = ()=> res(req.result);
+    req.onerror = ()=> rej(req.error);
+  });
+}
+async function idbGet(key){
+  try{
+    const db = await idbOpen();
+    return await new Promise((res,rej)=>{
+      const rq = db.transaction('handles','readonly').objectStore('handles').get(key);
+      rq.onsuccess = ()=> res(rq.result || null);
+      rq.onerror = ()=> rej(rq.error);
+    });
+  }catch(e){ return null; }
+}
+async function idbSet(key, val){
+  try{
+    const db = await idbOpen();
+    return await new Promise((res,rej)=>{
+      const tx = db.transaction('handles','readwrite');
+      tx.objectStore('handles').put(val, key);
+      tx.oncomplete = ()=>res();
+      tx.onerror = ()=>rej(tx.error);
+    });
+  }catch(e){}
+}
+async function idbDelete(key){
+  try{
+    const db = await idbOpen();
+    return await new Promise((res)=>{
+      const tx = db.transaction('handles','readwrite');
+      tx.objectStore('handles').delete(key);
+      tx.oncomplete = ()=>res();
+    });
+  }catch(e){}
+}
+
+/* ---- Write/read the connected data file ---- */
+async function writeDataToFile(){
+  if(!fileHandle) return;
+  try{
+    const perm = await fileHandle.queryPermission({mode:'readwrite'});
+    if(perm !== 'granted') return;
+    const writable = await fileHandle.createWritable();
+    await writable.write(JSON.stringify({settings, employees, tasks}, null, 2));
+    await writable.close();
+  }catch(e){ console.error('file write failed', e); }
+}
+async function loadFromFileHandle(){
+  try{
+    const file = await fileHandle.getFile();
+    const text = await file.text();
+    if(text.trim()){
+      const data = JSON.parse(text);
+      if(data.settings) settings = data.settings;
+      if(data.employees) employees = data.employees;
+      if(data.tasks) tasks = data.tasks;
+      // تأكد من وجود lineStock حتى لو البيانات قديمة
+      if(typeof settings.lineStock !== 'number') settings.lineStock = 0;
+    }
+  }catch(e){ console.error('file read failed', e); }
+}
+async function tryReconnectFile(){
+  const handle = await idbGet('fileHandle');
+  if(!handle) return;
+  fileHandle = handle;
+  try{
+    const perm = await fileHandle.queryPermission({mode:'readwrite'});
+    if(perm === 'granted'){
+      await loadFromFileHandle();
+    } else {
+      document.getElementById('reconnectBanner').style.display = 'flex';
+    }
+  }catch(e){ console.error(e); }
+}
+async function connectNewFile(){
+  if(!FS_SUPPORTED){ showToast('المتصفح ده مش بيدعم الحفظ في ملف، استخدم Chrome أو Edge'); return; }
+  try{
+    const handle = await window.showSaveFilePicker({
+      suggestedName: 'it-dashboard-data.json',
+      types: [{ description:'ملف بيانات البرنامج', accept:{'application/json':['.json']} }]
+    });
+    fileHandle = handle;
+    await idbSet('fileHandle', handle);
+    await writeDataToFile();
+    document.getElementById('reconnectBanner').style.display = 'none';
+    updateFileStatus();
+    showToast('تم ربط ملف البيانات بنجاح');
+  }catch(e){ if(e.name!=='AbortError'){ console.error(e); showToast('حصل خطأ أثناء ربط الملف'); } }
+}
+async function openExistingFile(){
+  if(!FS_SUPPORTED){ showToast('المتصفح ده مش بيدعم الحفظ في ملف، استخدم Chrome أو Edge'); return; }
+  try{
+    const [handle] = await window.showOpenFilePicker({
+      types: [{ description:'ملف بيانات البرنامج', accept:{'application/json':['.json']} }]
+    });
+    const perm = await handle.requestPermission({mode:'readwrite'});
+    if(perm !== 'granted'){ showToast('محتاج صلاحية الكتابة عشان يشتغل'); return; }
+    fileHandle = handle;
+    await idbSet('fileHandle', handle);
+    await loadFromFileHandle();
+    document.getElementById('reconnectBanner').style.display = 'none';
+    renderAll();
+    updateFileStatus();
+    showToast('تم فتح الملف وتحميل بياناته');
+  }catch(e){ if(e.name!=='AbortError'){ console.error(e); showToast('حصل خطأ أثناء فتح الملف'); } }
+}
+async function reconnectAllow(){
+  try{
+    const perm = await fileHandle.requestPermission({mode:'readwrite'});
+    if(perm === 'granted'){
+      await loadFromFileHandle();
+      document.getElementById('reconnectBanner').style.display = 'none';
+      renderAll();
+      showToast('تم الاتصال بملف البيانات');
+    } else {
+      showToast('محتاج تسمح بالوصول عشان يشتغل الحفظ التلقائي');
+    }
+  }catch(e){ console.error(e); }
+}
+async function disconnectFile(){
+  fileHandle = null;
+  await idbDelete('fileHandle');
+  document.getElementById('reconnectBanner').style.display = 'none';
+  updateFileStatus();
+  showToast('تم فصل ملف البيانات');
+}
+function updateFileStatus(){
+  const el = document.getElementById('fileStatusText');
+  const connectBtn = document.getElementById('connectFileBtn');
+  const openBtn = document.getElementById('openFileBtn');
+  const disconnectBtn = document.getElementById('disconnectFileBtn');
+  if(!FS_SUPPORTED){
+    el.textContent = 'المتصفح الحالي مش بيدعم الحفظ التلقائي في ملف (استخدم Chrome أو Edge). استخدم النسخة الاحتياطية تحت بدل منها.';
+    connectBtn.style.display='none'; openBtn.style.display='none'; disconnectBtn.style.display='none';
+    return;
+  }
+  if(fileHandle){
+    el.innerHTML = '🟢 متصل بملف: <b>'+escapeHtml(fileHandle.name)+'</b> — كل تعديل بيتحفظ فيه أوتوماتيك';
+    connectBtn.style.display='none'; openBtn.style.display='none'; disconnectBtn.style.display='inline-flex';
+  } else {
+    el.textContent = 'مش متصل بملف. اربط ملف جديد بجوار ملف البرنامج، أو افتح ملف بيانات موجود من قبل.';
+    connectBtn.style.display='inline-flex'; openBtn.style.display='inline-flex'; disconnectBtn.style.display='none';
+  }
+}
+
+async function saveSettings(){
+  try{ localStorage.setItem(STORAGE_PREFIX+'settings', JSON.stringify(settings)); }
+  catch(e){
+    console.error(e);
+    if(e.name==='QuotaExceededError'){ showToast('مساحة التخزين ممتلئة، جرب شعار أصغر'); }
+    else{ showToast('الحفظ مش شغال في هذا المتصفح (تأكد إنك مش في وضع التصفح الخفي)'); }
+  }
+  await writeDataToFile();
+}
+async function saveEmployees(){
+  try{ localStorage.setItem(STORAGE_PREFIX+'employees', JSON.stringify(employees)); }
+  catch(e){ console.error(e); showToast('حصل خطأ أثناء الحفظ — تأكد إن المتصفح مش في وضع التصفح الخفي'); }
+  await writeDataToFile();
+}
+async function saveTasks(){
+  try{ localStorage.setItem(STORAGE_PREFIX+'tasks', JSON.stringify(tasks)); }
+  catch(e){ console.error(e); showToast('حصل خطأ أثناء الحفظ — تأكد إن المتصفح مش في وضع التصفح الخفي'); }
+  await writeDataToFile();
+}
+
+async function loadAll(){
+  try{ const r = localStorage.getItem(STORAGE_PREFIX+'settings'); if(r) settings = JSON.parse(r); }catch(e){}
+  try{ const r = localStorage.getItem(STORAGE_PREFIX+'employees'); if(r) employees = JSON.parse(r); }catch(e){}
+  try{ const r = localStorage.getItem(STORAGE_PREFIX+'tasks'); if(r) tasks = JSON.parse(r); }catch(e){}
+  if(typeof settings.lineStock !== 'number') settings.lineStock = 0;
+  await tryReconnectFile();
+  document.getElementById('loadingWrap').style.display = 'none';
+  document.getElementById('appRoot').style.display = 'block';
+  updateFileStatus();
+  renderAll();
+}
+
+function exportBackup(){
+  const data = { settings, employees, tasks, exportedAt: new Date().toISOString() };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'it-dashboard-backup-'+todayStr()+'.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('تم تنزيل النسخة الاحتياطية');
+}
+
+function importBackup(file){
+  const reader = new FileReader();
+  reader.onload = async ()=>{
+    try{
+      const data = JSON.parse(reader.result);
+      if(data.settings) settings = data.settings;
+      if(data.employees) employees = data.employees;
+      if(data.tasks) tasks = data.tasks;
+      if(typeof settings.lineStock !== 'number') settings.lineStock = 0;
+      await saveSettings(); await saveEmployees(); await saveTasks();
+      renderAll();
+      showToast('تم استيراد النسخة الاحتياطية بنجاح');
+    }catch(e){
+      showToast('الملف مش صالح، تأكد إنه نسخة احتياطية صحيحة');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function renderAll(){
+  renderSidebarBrand();
+  renderDashboard();
+  renderEmployees();
+  renderTasks();
+  renderReports();
+  renderSettingsForm();
+  renderTaskEmployeeOptions();
+  document.getElementById('navEmpCount').textContent = employees.length;
+  document.getElementById('navTaskCount').textContent = tasks.length;
+}
+
+function renderSidebarBrand(){
+  document.getElementById('sbName').textContent = settings.companyName || 'اسم الشركة';
+  const logoEl = document.getElementById('sbLogo');
+  if(settings.logoDataUrl){
+    logoEl.innerHTML = '<img src="'+settings.logoDataUrl+'">';
+  } else {
+    const initials = (settings.companyName||'IT').trim().slice(0,2);
+    logoEl.textContent = initials;
+  }
+}
+
+function renderDashboard(){
+  document.getElementById('stMobiles').textContent = settings.mobileStock;
+  document.getElementById('stLaptops').textContent = settings.laptopStock;
+  document.getElementById('stLines').textContent = settings.lineStock || 0;
+  document.getElementById('stEmployees').textContent = employees.length;
+  document.getElementById('stTasksToday').textContent = tasks.filter(t=>t.date===todayStr()).length;
+
+  document.getElementById('mobileLowTag').innerHTML = settings.mobileStock <= 3 ? '<span class="low-tag">المخزون منخفض</span>' : '';
+  document.getElementById('laptopLowTag').innerHTML = settings.laptopStock <= 3 ? '<span class="low-tag">المخزون منخفض</span>' : '';
+  document.getElementById('lineLowTag').innerHTML = (settings.lineStock || 0) <= 3 ? '<span class="low-tag">المخزون منخفض</span>' : '';
+
+  const recent = [...tasks].sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||'')).slice(0,5);
+  const wrap = document.getElementById('recentTasksList');
+  if(recent.length===0){
+    wrap.innerHTML = '<div class="empty"><div>لسه مفيش مهام مسجلة</div></div>';
+  } else {
+    wrap.innerHTML = recent.map(taskRowHtml).join('');
+  }
+}
+
+function categoryColor(cat){
+  const map = {
+    'صيانة أجهزة': ['#E3F7F3','#0B7C6F'],
+    'شبكات': ['#E6F1FB','#0C447C'],
+    'دعم فني': ['#FEF3E0','#854F0B'],
+    'تنصيب برامج': ['#EEEDFE','#3C3489'],
+    'أخرى': ['#F1EFE8','#444441']
+  };
+  return map[cat] || map['أخرى'];
+}
+
+function taskRowHtml(t){
+  const [bg,fg] = categoryColor(t.category);
+  const emp = employees.find(e=>e.id===t.employeeId);
+  return '<div class="task-item">'
+    +'<div class="task-date">'+t.date+'</div>'
+    +'<div style="flex:1;">'
+      +'<span class="task-cat" style="background:'+bg+';color:'+fg+';">'+t.category+'</span>'
+      +'<div class="task-desc">'+escapeHtml(t.description)+'</div>'
+      +(emp ? '<div class="task-emp">مرتبط بـ: '+escapeHtml(emp.name)+'</div>' : '')
+    +'</div>'
+    +'<button class="btn danger sm" onclick="askDeleteTask(\''+t.id+'\')">'+trashIcon+'</button>'
+  +'</div>';
+}
+
+function escapeHtml(s){
+  const d = document.createElement('div');
+  d.textContent = s == null ? '' : s;
+  return d.innerHTML;
+}
+
+/* ---------- New Employee ---------- */
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    const dev = chip.dataset.device;
+    selectedDevices[dev] = !selectedDevices[dev];
+    chip.classList.toggle('checked', selectedDevices[dev]);
+  });
+});
+
+document.getElementById('saveNewEmpBtn').addEventListener('click', async ()=>{
+  const name = document.getElementById('newEmpName').value.trim();
+  if(!name){ showToast('اكتب اسم الموظف الأول'); return; }
+  if(selectedDevices.mobile && settings.mobileStock<=0){ showToast('مفيش موبايلات في المخزون'); return; }
+  if(selectedDevices.laptop && settings.laptopStock<=0){ showToast('مفيش لابتوبات في المخزون'); return; }
+  if(selectedDevices.other && (settings.lineStock||0)<=0){ showToast('مفيش خطوط في المخزون'); return; }
+
+  const emp = {
+    id: uid(), name, code:'', department:'',
+    devices: {...selectedDevices},
+    dateAdded: todayStr()
+  };
+  employees.push(emp);
+  if(selectedDevices.mobile) settings.mobileStock = Math.max(0, settings.mobileStock-1);
+  if(selectedDevices.laptop) settings.laptopStock = Math.max(0, settings.laptopStock-1);
+  if(selectedDevices.other) settings.lineStock = Math.max(0, (settings.lineStock||0)-1);
+
+  await saveEmployees();
+  await saveSettings();
+
+  document.getElementById('newEmpName').value='';
+  selectedDevices = {mobile:false,laptop:false,other:false};
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('checked'));
+
+  renderAll();
+  showToast('تم حفظ الموظف بنجاح');
+});
+
+/* ---------- Employees table ---------- */
+function renderEmployees(){
+  const tbody = document.getElementById('employeesTbody');
+  const emptyEl = document.getElementById('employeesEmpty');
+  if(employees.length===0){
+    tbody.innerHTML=''; emptyEl.style.display='block'; return;
+  }
+  emptyEl.style.display='none';
+  tbody.innerHTML = [...employees].sort((a,b)=>b.dateAdded.localeCompare(a.dateAdded)).map(e=>{
+    const devBtn = (key, label)=>{
+      const on = !!e.devices[key];
+      return '<button type="button" class="dev-toggle'+(on?' on':'')+'" onclick="toggleEmployeeDevice(\''+e.id+'\',\''+key+'\')">'
+        +(on?'<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>')
+        +label+'</button>';
+    };
+    return '<tr>'
+      +'<td><input class="inline-edit" value="'+escapeHtml(e.name)+'" onchange="updateEmpField(\''+e.id+'\',\'name\',this.value)"></td>'
+      +'<td><input class="inline-edit code-pill" style="width:90px;" placeholder="—" value="'+escapeHtml(e.code)+'" onchange="updateEmpField(\''+e.id+'\',\'code\',this.value)"></td>'
+      +'<td><input class="inline-edit" placeholder="—" value="'+escapeHtml(e.department)+'" onchange="updateEmpField(\''+e.id+'\',\'department\',this.value)"></td>'
+      +'<td><div class="dev-toggle-group">'+devBtn('mobile','موبايل')+devBtn('laptop','لابتوب')+devBtn('other','خط')+'</div></td>'
+      +'<td style="font-family:var(--mono);font-size:12px;color:var(--text-2);">'+e.dateAdded+'</td>'
+      +'<td><button class="btn danger sm" onclick="askDeleteEmployee(\''+e.id+'\')">'+trashIcon+'</button></td>'
+    +'</tr>';
+  }).join('');
+}
+
+async function toggleEmployeeDevice(id, device){
+  const emp = employees.find(e=>e.id===id);
+  if(!emp) return;
+  const has = !!emp.devices[device];
+  if(!has){
+    if(device==='mobile' && settings.mobileStock<=0){ showToast('مفيش موبايلات في المخزون'); return; }
+    if(device==='laptop' && settings.laptopStock<=0){ showToast('مفيش لابتوبات في المخزون'); return; }
+    if(device==='other' && (settings.lineStock||0)<=0){ showToast('مفيش خطوط في المخزون'); return; }
+    emp.devices[device] = true;
+    if(device==='mobile') settings.mobileStock = Math.max(0, settings.mobileStock-1);
+    if(device==='laptop') settings.laptopStock = Math.max(0, settings.laptopStock-1);
+    if(device==='other') settings.lineStock = Math.max(0, (settings.lineStock||0)-1);
+    showToast('تم إضافة الجهاز للموظف');
+  } else {
+    emp.devices[device] = false;
+    if(device==='mobile') settings.mobileStock += 1;
+    if(device==='laptop') settings.laptopStock += 1;
+    if(device==='other') settings.lineStock = (settings.lineStock||0) + 1;
+    showToast('تم إلغاء الجهاز من الموظف');
+  }
+  await saveEmployees();
+  await saveSettings();
+  renderAll();
+}
+
+async function updateEmpField(id, field, value){
+  const emp = employees.find(e=>e.id===id);
+  if(!emp) return;
+  emp[field] = value.trim();
+  await saveEmployees();
+  showToast('تم تحديث بيانات الموظف');
+  if(field==='name'){ renderTaskEmployeeOptions(); renderDashboard(); }
+}
+
+function askDeleteEmployee(id){
+  pendingDelete = {type:'employee', id};
+  document.getElementById('confirmText').textContent = 'هل تريد حذف هذا الموظف؟';
+  document.getElementById('confirmModal').classList.add('show');
+}
+
+/* ---------- Tasks ---------- */
+function renderTaskEmployeeOptions(){
+  const sel = document.getElementById('taskEmployee');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">بدون تحديد</option>' + employees.map(e=>
+    '<option value="'+e.id+'">'+escapeHtml(e.name)+'</option>'
+  ).join('');
+  sel.value = current;
+}
+
+document.getElementById('taskDate').value = todayStr();
+
+document.getElementById('saveTaskBtn').addEventListener('click', async ()=>{
+  const date = document.getElementById('taskDate').value || todayStr();
+  const category = document.getElementById('taskCategory').value;
+  const employeeId = document.getElementById('taskEmployee').value;
+  const description = document.getElementById('taskDesc').value.trim();
+  if(!description){ showToast('اكتب تفاصيل المهمة'); return; }
+
+  tasks.push({ id:uid(), date, category, employeeId: employeeId||null, description, createdAt: new Date().toISOString() });
+  await saveTasks();
+  document.getElementById('taskDesc').value='';
+  renderAll();
+  showToast('تم إضافة المهمة');
+});
+
+function renderTasks(){
+  const wrap = document.getElementById('allTasksList');
+  const emptyEl = document.getElementById('tasksEmpty');
+  if(tasks.length===0){ wrap.innerHTML=''; emptyEl.style.display='block'; return; }
+  emptyEl.style.display='none';
+  const sorted = [...tasks].sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
+  wrap.innerHTML = sorted.map(taskRowHtml).join('');
+}
+
+function askDeleteTask(id){
+  pendingDelete = {type:'task', id};
+  document.getElementById('confirmText').textContent = 'هل تريد حذف هذه المهمة؟';
+  document.getElementById('confirmModal').classList.add('show');
+}
+
+/* ---------- Confirm modal ---------- */
+document.getElementById('confirmNo').addEventListener('click', ()=>{
+  pendingDelete = null;
+  document.getElementById('confirmModal').classList.remove('show');
+});
+document.getElementById('confirmYes').addEventListener('click', async ()=>{
+  if(!pendingDelete){ document.getElementById('confirmModal').classList.remove('show'); return; }
+  if(pendingDelete.type==='task'){
+    tasks = tasks.filter(t=>t.id!==pendingDelete.id);
+    await saveTasks();
+    showToast('تم حذف المهمة');
+  } else if(pendingDelete.type==='employee'){
+    const emp = employees.find(e=>e.id===pendingDelete.id);
+    if(emp){
+      // إرجاع كل الأجهزة والخطوط إلى المخزون
+      if(emp.devices.mobile) settings.mobileStock += 1;
+      if(emp.devices.laptop) settings.laptopStock += 1;
+      if(emp.devices.other)  settings.lineStock = (settings.lineStock||0) + 1;
+    }
+    employees = employees.filter(e=>e.id!==pendingDelete.id);
+    await saveEmployees();
+    await saveSettings();
+    showToast('تم حذف الموظف وإرجاع الأجهزة والخطوط إلى المخزون');
+  }
+  pendingDelete = null;
+  document.getElementById('confirmModal').classList.remove('show');
+  renderAll();
+});
+
+/* ---------- Reports ---------- */
+function renderReports(){
+  const from = document.getElementById('repFrom').value;
+  const to = document.getElementById('repTo').value;
+  let filtered = tasks;
+  if(from) filtered = filtered.filter(t=>t.date >= from);
+  if(to) filtered = filtered.filter(t=>t.date <= to);
+
+  const byCat = {};
+  filtered.forEach(t=>{ byCat[t.category] = (byCat[t.category]||0)+1; });
+  const maxCat = Math.max(1, ...Object.values(byCat));
+  const catWrap = document.getElementById('repByCategory');
+  const catKeys = Object.keys(byCat);
+  catWrap.innerHTML = catKeys.length===0 ? '<div class="empty"><div>لا توجد مهام في هذه الفترة</div></div>' :
+    catKeys.map(cat=>{
+      const count = byCat[cat];
+      const pct = Math.round((count/maxCat)*100);
+      return '<div class="bar-row"><div class="bar-label">'+cat+'</div><div class="bar-track"><div class="bar-fill" style="width:'+pct+'%;"></div></div><div class="bar-count">'+count+'</div></div>';
+    }).join('');
+
+  const byDate = {};
+  filtered.forEach(t=>{ byDate[t.date] = (byDate[t.date]||0)+1; });
+  const dateKeys = Object.keys(byDate).sort().reverse();
+  const maxDate = Math.max(1, ...Object.values(byDate));
+  const dateWrap = document.getElementById('repByDate');
+  dateWrap.innerHTML = dateKeys.length===0 ? '<div class="empty"><div>لا توجد مهام في هذه الفترة</div></div>' :
+    dateKeys.map(d=>{
+      const count = byDate[d];
+      const pct = Math.round((count/maxDate)*100);
+      return '<div class="bar-row"><div class="bar-label">'+d+'</div><div class="bar-track"><div class="bar-fill" style="width:'+pct+'%;"></div></div><div class="bar-count">'+count+'</div></div>';
+    }).join('');
+
+  const summary = document.getElementById('repSummary');
+  const totalDays = dateKeys.length;
+  const avg = totalDays ? (filtered.length/totalDays).toFixed(1) : '0';
+  summary.innerHTML =
+    '<div class="stat-row" style="margin-bottom:14px;"><div class="stat-label">إجمالي المهام</div><div class="stat-value" style="font-size:24px;">'+filtered.length+'</div></div>'
+    +'<div class="stat-row" style="margin-bottom:14px;"><div class="stat-label">عدد الأيام المسجلة</div><div class="stat-value" style="font-size:24px;">'+totalDays+'</div></div>'
+    +'<div class="stat-row"><div class="stat-label">متوسط المهام باليوم</div><div class="stat-value" style="font-size:24px;">'+avg+'</div></div>';
+}
+document.getElementById('repFrom').addEventListener('change', renderReports);
+document.getElementById('repTo').addEventListener('change', renderReports);
+document.getElementById('repClearBtn').addEventListener('click', ()=>{
+  document.getElementById('repFrom').value=''; document.getElementById('repTo').value='';
+  renderReports();
+});
+
+function getFilteredTasksForReport(){
+  const from = document.getElementById('repFrom').value;
+  const to = document.getElementById('repTo').value;
+  let filtered = [...tasks];
+  if(from) filtered = filtered.filter(t=>t.date >= from);
+  if(to) filtered = filtered.filter(t=>t.date <= to);
+  filtered.sort((a,b)=> a.date.localeCompare(b.date) || (a.createdAt||'').localeCompare(b.createdAt||''));
+  return {filtered, from, to};
+}
+
+function exportReportPDF(){
+  const {filtered, from, to} = getFilteredTasksForReport();
+  if(filtered.length===0){ showToast('مفيش مهام في الفترة دي عشان تتصدّر'); return; }
+
+  const byCat = {};
+  filtered.forEach(t=>{ byCat[t.category] = (byCat[t.category]||0)+1; });
+  const maxCat = Math.max(1, ...Object.values(byCat));
+
+  const byDate = {};
+  filtered.forEach(t=>{ byDate[t.date] = (byDate[t.date]||0)+1; });
+  const dateKeys = Object.keys(byDate).sort();
+  const maxDate = Math.max(1, ...Object.values(byDate));
+  const totalDays = dateKeys.length;
+  const avgPerDay = totalDays ? (filtered.length/totalDays).toFixed(1) : '0';
+
+  const empWithTasks = new Set(filtered.filter(t=>t.employeeId).map(t=>t.employeeId)).size;
+  const busiestDate = dateKeys.reduce((best,d)=> byDate[d] > (byDate[best]||0) ? d : best, dateKeys[0]);
+  const topCategory = Object.keys(byCat).reduce((best,c)=> byCat[c] > (byCat[best]||0) ? c : best, Object.keys(byCat)[0]);
+
+  const periodLabel = (from || to) ? ((from||'البداية')+' → '+(to||'اليوم')) : 'كل الفترة المسجلة';
+
+  const logoHtml = settings.logoDataUrl
+    ? '<img src="'+settings.logoDataUrl+'">'
+    : '<span style="color:#fff;font-weight:900;font-size:16px;">'+escapeHtml((settings.companyName||'IT').slice(0,2))+'</span>';
+
+  const catRows = Object.keys(byCat).sort((a,b)=>byCat[b]-byCat[a]).map(cat=>{
+    const count = byCat[cat];
+    const pct = Math.round((count/maxCat)*100);
+    return '<div class="pr-bar-row"><div class="pr-bar-label">'+escapeHtml(cat)+'</div><div class="pr-bar-track"><div class="pr-bar-fill" style="width:'+pct+'%;"></div></div><div class="pr-bar-count">'+count+'</div></div>';
+  }).join('');
+
+  const dateRows = dateKeys.map(d=>{
+    const count = byDate[d];
+    const pct = Math.round((count/maxDate)*100);
+    return '<div class="pr-bar-row"><div class="pr-bar-label">'+d+'</div><div class="pr-bar-track"><div class="pr-bar-fill" style="width:'+pct+'%;"></div></div><div class="pr-bar-count">'+count+'</div></div>';
+  }).join('');
+
+  const taskTableRows = filtered.map(t=>{
+    const emp = employees.find(e=>e.id===t.employeeId);
+    return '<tr>'
+      +'<td style="font-family:\'IBM Plex Mono\',monospace;white-space:nowrap;">'+t.date+'</td>'
+      +'<td><span class="pr-cat-tag">'+escapeHtml(t.category)+'</span></td>'
+      +'<td>'+escapeHtml(t.description)+'</td>'
+      +'<td style="white-space:nowrap;">'+(emp ? escapeHtml(emp.name) : '—')+'</td>'
+    +'</tr>';
+  }).join('');
+
+  const generatedAt = new Date().toLocaleString('ar-EG', { dateStyle:'medium', timeStyle:'short' });
+
+  document.getElementById('printReport').innerHTML = `
+    <div class="pr-header">
+      <div class="pr-brand">
+        <div class="pr-logo">${logoHtml}</div>
+        <div>
+          <p class="pr-brand-name">${escapeHtml(settings.companyName||'الشركة')}</p>
+          <p class="pr-brand-sub">قسم تقنية المعلومات — IT</p>
+        </div>
+      </div>
+      <div class="pr-title-block">
+        <p class="pr-title">تقرير المهام اليومية</p>
+        <p class="pr-meta">الفترة: ${periodLabel}</p>
+        <p class="pr-meta">تاريخ الإصدار: ${generatedAt}</p>
+      </div>
+    </div>
+
+    <div class="pr-stats">
+      <div class="pr-stat"><div class="pr-stat-label">إجمالي المهام</div><div class="pr-stat-value">${filtered.length}</div></div>
+      <div class="pr-stat"><div class="pr-stat-label">أيام العمل المسجلة</div><div class="pr-stat-value">${totalDays}</div></div>
+      <div class="pr-stat"><div class="pr-stat-label">متوسط المهام / يوم</div><div class="pr-stat-value">${avgPerDay}</div></div>
+      <div class="pr-stat"><div class="pr-stat-label">موظفين تم خدمتهم</div><div class="pr-stat-value">${empWithTasks}</div></div>
+    </div>
+
+    <div class="pr-section-title">تحليل — أبرز الملاحظات</div>
+    <p style="font-size:11.5px;line-height:1.9;color:#344056;margin:0;">
+      أكتر نوع مهام تكرارًا خلال الفترة كان <b>${escapeHtml(topCategory||'—')}</b> بواقع ${byCat[topCategory]||0} مهمة من إجمالي ${filtered.length}.
+      أكتر يوم فيه نشاط كان <b>${busiestDate||'—'}</b> بعدد ${byDate[busiestDate]||0} مهمة.
+      بمعدل عام قدره <b>${avgPerDay}</b> مهمة يوميًا على مدار ${totalDays} يوم عمل مسجّل.
+    </p>
+
+    <div class="pr-section-title">توزيع المهام حسب النوع</div>
+    ${catRows}
+
+    <div class="pr-section-title">توزيع المهام حسب اليوم</div>
+    ${dateRows}
+
+    <div class="pr-section-title">تفاصيل كل المهام (${filtered.length})</div>
+    <table class="pr-table">
+      <thead><tr><th>التاريخ</th><th>النوع</th><th>التفاصيل</th><th>الموظف</th></tr></thead>
+      <tbody>${taskTableRows}</tbody>
+    </table>
+
+    <div class="pr-footer">تم إنشاء هذا التقرير أوتوماتيكيًا من نظام إدارة IT — ${escapeHtml(settings.companyName||'')}</div>
+  `;
+
+  setTimeout(()=>{ window.print(); }, 80);
+}
+
+/* ---------- Settings ---------- */
+function renderSettingsForm(){
+  document.getElementById('setCompanyName').value = settings.companyName || '';
+  document.getElementById('setMobileStock').value = settings.mobileStock || 0;
+  document.getElementById('setLaptopStock').value = settings.laptopStock || 0;
+  document.getElementById('setLineStock').value = settings.lineStock || 0;
+}
+
+document.getElementById('setLogoInput').addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const size = 160;
+      const canvas = document.createElement('canvas');
+      canvas.width = size; canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      const scale = Math.max(size/img.width, size/img.height);
+      const w = img.width*scale, h = img.height*scale;
+      ctx.drawImage(img, (size-w)/2, (size-h)/2, w, h);
+      settings.logoDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+      showToast('تم اختيار الشعار، اضغط "حفظ البيانات" لتأكيد الحفظ');
+    };
+    img.onerror = ()=> showToast('الملف مش صورة صالحة');
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('saveSettingsBtn').addEventListener('click', async ()=>{
+  settings.companyName = document.getElementById('setCompanyName').value.trim() || 'اسم الشركة';
+  await saveSettings();
+  renderSidebarBrand();
+  showToast('تم حفظ بيانات الشركة');
+});
+
+document.getElementById('saveStockBtn').addEventListener('click', async ()=>{
+  settings.mobileStock = Math.max(0, parseInt(document.getElementById('setMobileStock').value)||0);
+  settings.laptopStock = Math.max(0, parseInt(document.getElementById('setLaptopStock').value)||0);
+  settings.lineStock = Math.max(0, parseInt(document.getElementById('setLineStock').value)||0);
+  await saveSettings();
+  renderDashboard();
+  showToast('تم تحديث المخزون');
+});
+
+document.getElementById('exportBtn').addEventListener('click', exportBackup);
+document.getElementById('importInput').addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(file) importBackup(file);
+  e.target.value = '';
+});
+
+/* ---------- Navigation ---------- */
+document.querySelectorAll('.navitem').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.navitem').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('page-'+btn.dataset.page).classList.add('active');
+  });
+});
+
+loadAll();
+</script>
+</body>
+</html>

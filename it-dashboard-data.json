@@ -1,0 +1,2289 @@
+{
+  "settings": {
+    "companyName": "SimplexCNC",
+    "logoDataUrl": "data:image/png;base64,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",
+    "mobileStock": 2,
+    "laptopStock": 2,
+    "lineStock": 1
+  },
+  "employees": [
+    {
+      "id": "mrun8xhpaa38e",
+      "name": "كريم وجيه رسمي",
+      "code": "9191",
+      "department": "IT",
+      "devices": {
+        "mobile": true,
+        "laptop": true,
+        "other": true
+      },
+      "dateAdded": "2026-07-21"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "mrsu5is8reoii",
+      "date": "2026-07-01",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم دخول ريموتلي anydesk مع محاسب المصنع و اتعريف البرنتر على اللاب توب",
+      "createdAt": "2026-07-20T06:20:32.216Z"
+    },
+    {
+      "id": "mrsu5x36ot1dc",
+      "date": "2026-07-01",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تم عمل زياره الى المصنع الايجار",
+      "createdAt": "2026-07-20T06:20:50.754Z"
+    },
+    {
+      "id": "mrsu6r48hazfs",
+      "date": "2026-07-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه للموظفة ايه عبد الحميد",
+      "createdAt": "2026-07-20T06:21:29.672Z"
+    },
+    {
+      "id": "mrsu7b5iwrnhu",
+      "date": "2026-07-02",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم فحص خطوط الارضي و تبين انه حجم الباقه كبير و الغاء خدمة تخص الIT",
+      "createdAt": "2026-07-20T06:21:55.638Z"
+    },
+    {
+      "id": "mrsu7i724r1mb",
+      "date": "2026-07-02",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم فحص اجهزة الكاميرات فى الفروع و تم رصد مشكلة فى كاميرات المصنع حيث انه توقف تسجيل يوم 25-6 فى تمام الساعه 1:30 صباحا نتيجة تيار كهربائي غير منتظم",
+      "createdAt": "2026-07-20T06:22:04.766Z"
+    },
+    {
+      "id": "mrsu9usj6yn9q",
+      "date": "2026-07-05",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "صيانة اجهزة لابت توب و توفيق قطع غيار من اجهزة قديمة متواجده فى قسم الIT تجهيز اجهزة لاب توب للتسليم",
+      "createdAt": "2026-07-20T06:23:54.403Z"
+    },
+    {
+      "id": "mrsugxree0wla",
+      "date": "2026-07-06",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تجهيز اجهزة لاب توب للموظفين",
+      "createdAt": "2026-07-20T06:29:24.842Z"
+    },
+    {
+      "id": "mrsuhntc1k8yi",
+      "date": "2026-07-07",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم تغير الباسورد و منع الباسورد عن التيلفونات و تم تغير البطارية للاب توب \nيوم تعديل فى عدة اشياء يحتاجها العمل",
+      "createdAt": "2026-07-20T06:29:58.608Z"
+    },
+    {
+      "id": "mrsui2q7vo6sf",
+      "date": "2026-07-08",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "متابعة مشروع تحويل الكاميرات العاديه الى AI\nتم التجربة و تصوير عامل و عمل تيست",
+      "createdAt": "2026-07-20T06:30:17.935Z"
+    },
+    {
+      "id": "mrsujgva9fo5y",
+      "date": "2026-07-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "دخول ريموتلى مع جهازين من السعودية\nتم تفعيل الاوفيس و و تنزيل ميل الزوهو",
+      "createdAt": "2026-07-20T06:31:22.918Z"
+    },
+    {
+      "id": "mrsul0ccm3j24",
+      "date": "2026-07-09",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم العمل على تعديل السلك فى راك غرفة السيرفير\nتم العمل على تعديل بعض السلوك فى راك غرفة السيرفير\nلمتابعة اعمال مشروع الكاميرات الAI\nبمصنع العاشر",
+      "createdAt": "2026-07-20T06:32:34.812Z"
+    },
+    {
+      "id": "mrsuld4jmb4r0",
+      "date": "2026-07-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "عمل باقة اضافية للأسطى شربيه",
+      "createdAt": "2026-07-20T06:32:51.379Z"
+    },
+    {
+      "id": "mrsulhkz6efxu",
+      "date": "2026-07-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "عمل باقة اضافية لغفران اتش ار",
+      "createdAt": "2026-07-20T06:32:57.155Z"
+    },
+    {
+      "id": "mrsulwmnsz84s",
+      "date": "2026-07-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "دخول ريموتلى مع جهاز عمر اتش ار\nلتعريف الاسكانر",
+      "createdAt": "2026-07-20T06:33:16.655Z"
+    },
+    {
+      "id": "mrsupyq0mepg2",
+      "date": "2026-07-10",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "عمل فصح على كاميرات الفروع \nو فحص على روترات الفروع",
+      "createdAt": "2026-07-20T06:36:25.992Z"
+    },
+    {
+      "id": "mrsur4awi6uy5",
+      "date": "2026-07-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "العمل على طلب اجهزة لاب توب و موبيلات",
+      "createdAt": "2026-07-20T06:37:19.880Z"
+    },
+    {
+      "id": "mrsusaezhub33",
+      "date": "2026-07-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "عمل تفعيل لحزمة اوفيس على لاب توب موظف",
+      "createdAt": "2026-07-20T06:38:14.459Z"
+    },
+    {
+      "id": "mrsusvcfck4m0",
+      "date": "2026-07-13",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم تجهيز 5 لاب توب للتسليم",
+      "createdAt": "2026-07-20T06:38:41.583Z"
+    },
+    {
+      "id": "mrsut9o61dm2l",
+      "date": "2026-07-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم عدد 3 لاب توب",
+      "createdAt": "2026-07-20T06:39:00.150Z"
+    },
+    {
+      "id": "mrsutitcw6cze",
+      "date": "2026-07-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم 2 شريحة",
+      "createdAt": "2026-07-20T06:39:12.000Z"
+    },
+    {
+      "id": "mrsuuab5pl6k1",
+      "date": "2026-07-13",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "صيانة 3 لاب توب",
+      "createdAt": "2026-07-20T06:39:47.633Z"
+    },
+    {
+      "id": "mrsuuptxihokt",
+      "date": "2026-07-13",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "صيانة و تغير معجون تبريد لاب توب",
+      "createdAt": "2026-07-20T06:40:07.749Z"
+    },
+    {
+      "id": "mrsuvpk84if8t",
+      "date": "2026-07-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تسليم عدد 2 شريحة موبيل",
+      "createdAt": "2026-07-20T06:40:54.056Z"
+    },
+    {
+      "id": "mrsuwdozhtke6",
+      "date": "2026-07-14",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "صيانة هوسينج لاب توب",
+      "createdAt": "2026-07-20T06:41:25.331Z"
+    },
+    {
+      "id": "mrsuwwk5ed93w",
+      "date": "2026-07-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم عدد 2 شريحة موبيل",
+      "createdAt": "2026-07-20T06:41:49.781Z"
+    },
+    {
+      "id": "mrsv4mlhr0s4u",
+      "date": "2026-07-16",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل صيانة للاب توب الخاص بالمحاسب و تغير معجون",
+      "createdAt": "2026-07-20T06:47:50.117Z"
+    },
+    {
+      "id": "mrsv59flmdgq1",
+      "date": "2026-07-16",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل تفعيل لحزمة الاوفيس لجهاز مددير الانتاج",
+      "createdAt": "2026-07-20T06:48:19.713Z"
+    },
+    {
+      "id": "mrsv5vl452vlx",
+      "date": "2026-07-16",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تعريف طبعة من خلال برنامج Anydesk",
+      "createdAt": "2026-07-20T06:48:48.424Z"
+    },
+    {
+      "id": "mrsv63qiuvubg",
+      "date": "2026-07-16",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل فحص على وحدة التخزين الخاصه بالكاميرات",
+      "createdAt": "2026-07-20T06:48:58.986Z"
+    },
+    {
+      "id": "mrsv6bd1nrkfe",
+      "date": "2026-07-16",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تم العمل على برمجة برنامج خاص بشرائح الموبيل خاص بقسم الIT",
+      "createdAt": "2026-07-20T06:49:08.869Z"
+    },
+    {
+      "id": "mrsv6nrqj5scs",
+      "date": "2026-07-16",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم حل مشكلة الانترنت بمصنع العاشر",
+      "createdAt": "2026-07-20T06:49:24.950Z"
+    },
+    {
+      "id": "mrsv6uht08smk",
+      "date": "2026-07-16",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم العمل على اجهززة الكاميرات و اجراء بعض التعديلات",
+      "createdAt": "2026-07-20T06:49:33.665Z"
+    },
+    {
+      "id": "mrsv716gzlk99",
+      "date": "2026-07-16",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تم التواصل مع مسؤل موبينل لعمل تفويض",
+      "createdAt": "2026-07-20T06:49:42.328Z"
+    },
+    {
+      "id": "mrsv8mgycfepm",
+      "date": "2026-07-18",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تم عمل زيارة لمصنع العاشر لأستلام لاب توب من موظف",
+      "createdAt": "2026-07-20T06:50:56.578Z"
+    },
+    {
+      "id": "mrsv971fkdtdl",
+      "date": "2026-07-18",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تم تسليم لاب توب لموظف",
+      "createdAt": "2026-07-20T06:51:23.236Z"
+    },
+    {
+      "id": "mrsv9otwf4no7",
+      "date": "2026-07-18",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تم عمل اخلاء طرف لموظف",
+      "createdAt": "2026-07-20T06:51:46.292Z"
+    },
+    {
+      "id": "mrsvb63a3nm3q",
+      "date": "2026-07-19",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم 2 موظفين لاب توب - شريحة موبيل - موبيل",
+      "createdAt": "2026-07-20T06:52:55.318Z"
+    },
+    {
+      "id": "mrsvbovq8k4ie",
+      "date": "2026-07-19",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم عمل نسخ ويندوز على 3 اجهزة",
+      "createdAt": "2026-07-20T06:53:19.670Z"
+    },
+    {
+      "id": "mrsvc74uu9i7u",
+      "date": "2026-07-19",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "ارسال ميل بتفعيل 8 خطوط",
+      "createdAt": "2026-07-20T06:53:43.326Z"
+    },
+    {
+      "id": "mrsvda7dlgwgr",
+      "date": "2026-07-19",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "دخول مع موظف فى السعودية لأستكمال برامج النسخة",
+      "createdAt": "2026-07-20T06:54:33.961Z"
+    },
+    {
+      "id": "mrun1xokpdwo6",
+      "date": "2026-07-20",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تسليم عدد 2 موبيل فى الحسابات",
+      "createdAt": "2026-07-21T12:37:19.940Z"
+    },
+    {
+      "id": "mrun27ti6k4ad",
+      "date": "2026-07-20",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تسليم لاب توب لموظف",
+      "createdAt": "2026-07-21T12:37:33.078Z"
+    },
+    {
+      "id": "mrun2gsw4jn8c",
+      "date": "2026-07-20",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "عقد اجتماع مع فودافون",
+      "createdAt": "2026-07-21T12:37:44.720Z"
+    },
+    {
+      "id": "mrun36xyh2upx",
+      "date": "2026-07-20",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "نقل هارد لاب توب الى لاب توب اخر لحين الانتهاء من الصيانة",
+      "createdAt": "2026-07-21T12:38:18.598Z"
+    },
+    {
+      "id": "mrvrw85nc6etx",
+      "date": "2026-07-21",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "فحص تخزين الكاميرات بجميع الفروع",
+      "createdAt": "2026-07-22T07:40:37.835Z"
+    },
+    {
+      "id": "mrvrwpqclj48m",
+      "date": "2026-07-21",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "دخول اني ديسك لمعالجة حزمة الاوفيس",
+      "createdAt": "2026-07-22T07:41:00.612Z"
+    },
+    {
+      "id": "mrvxgb28raluy",
+      "date": "2026-07-22",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "ارسال ميل لتفعيل باقة اضافيه للمكتب الفني و مكتب المهندس احمد شوقي",
+      "createdAt": "2026-07-22T10:16:12.800Z"
+    },
+    {
+      "id": "ms1i9k4718yaj",
+      "date": "2026-07-26",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل فحص على اجهزة الكاميرات و تبين ان كاميرة مكتب المهندس شوقى تم فكها",
+      "createdAt": "2026-07-26T07:57:40.759Z"
+    },
+    {
+      "id": "ms4ith4gk2mg4",
+      "date": "2026-07-26",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم ارسال ميل بطلبات المشتريات المطلوبه",
+      "createdAt": "2026-07-28T10:36:28.528Z"
+    },
+    {
+      "id": "ms4iu5fndrkdx",
+      "date": "2026-07-27",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم معالجة بصمة الامارات و السعوديه",
+      "createdAt": "2026-07-28T10:37:00.035Z"
+    },
+    {
+      "id": "ms4iuhqka4u91",
+      "date": "2026-07-27",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم هاتف و شريحة لموظفة",
+      "createdAt": "2026-07-28T10:37:15.980Z"
+    },
+    {
+      "id": "ms4ivil22bgt6",
+      "date": "2026-07-28",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم معالجة بصمة الادارة و المبيعات و مصنع المرج و مصنع العاشر",
+      "createdAt": "2026-07-28T10:38:03.734Z"
+    },
+    {
+      "id": "ms4iwfc31499i",
+      "date": "2026-07-28",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم التوجهة الى مصنع العاشر الايجار لفحص جهاز الكاميرات و تغير الواى فاي",
+      "createdAt": "2026-07-28T10:38:46.179Z"
+    },
+    {
+      "id": "ms5x0xaok4yxm",
+      "date": "2026-07-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "حل مشكلة لعميل تابع لقسم الصيانة فى جهاز الخاص بالمكنه",
+      "createdAt": "2026-07-29T10:01:56.880Z"
+    },
+    {
+      "id": "ms5x1f1vfdgrc",
+      "date": "2026-07-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تسليم شريحة موبيل لموظف",
+      "createdAt": "2026-07-29T10:02:19.891Z"
+    },
+    {
+      "id": "ms5x1nzs8j7d4",
+      "date": "2026-07-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تعريف برنتر فى قسم الحسابات",
+      "createdAt": "2026-07-29T10:02:31.480Z"
+    },
+    {
+      "id": "ms5x249kntvig",
+      "date": "2026-07-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تعريف برنتر فى قسم HR",
+      "createdAt": "2026-07-29T10:02:52.568Z"
+    },
+    {
+      "id": "ms5x2ixystpk3",
+      "date": "2026-07-29",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تغير معجون حرارى للاب توب",
+      "createdAt": "2026-07-29T10:03:11.590Z"
+    },
+    {
+      "id": "ms5zxi58t53vb",
+      "date": "2026-07-29",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم عمل نسخة ويندوز على لاب توب الخاص بقسم التدريب",
+      "createdAt": "2026-07-29T11:23:16.124Z"
+    },
+    {
+      "id": "ms61dsotd4ini",
+      "date": "2026-07-29",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم تغير بطارية لاب توب فى قسم الصيانة - الدعم الفني",
+      "createdAt": "2026-07-29T12:03:55.901Z"
+    },
+    {
+      "id": "ms7bv8vfaadwc",
+      "date": "2026-07-30",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل باك اب لجهاز لاب توب و تغير الهارد التالف بهارد اخر و تنزيل نسخة ويندوز و تعريف جميع التعرفيات و استرجاع الباك اب مره اخري",
+      "createdAt": "2026-07-30T09:45:12.363Z"
+    },
+    {
+      "id": "msa136rc2mvws",
+      "date": "2026-07-30",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "مراجعة تسجيل الكاميرات و التأكد انها تعمل بشكل جيد",
+      "createdAt": "2026-08-01T07:06:45.624Z"
+    },
+    {
+      "id": "msa14a487ljh0",
+      "date": "2026-07-30",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "متابعة و الاتفاق على تركيب كاميرات مصنع العاشر الايجار",
+      "createdAt": "2026-08-01T07:07:36.632Z"
+    },
+    {
+      "id": "msadmcxmj7oqh",
+      "date": "2026-08-01",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "متابعة تفريغ المخزن الخاص بمصنع العاشر الملك و تصنيف المنتجات الذي تصلح لتركيب مصنع العاشر 2 الايجار - و الاغراض التي ستفيد قسم الIT",
+      "createdAt": "2026-08-01T12:57:35.482Z"
+    },
+    {
+      "id": "msadmstvht9jc",
+      "date": "2026-08-01",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "ارسال التقرير الشهرى لقسم الIT",
+      "createdAt": "2026-08-01T12:57:56.083Z"
+    },
+    {
+      "id": "msadnowdsxp0f",
+      "date": "2026-08-01",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "ارسال شكوي الى شركة اتصالات بالخطوط الذي تم شغيلها مؤخرا و لم تتفعل",
+      "createdAt": "2026-08-01T12:58:37.645Z"
+    },
+    {
+      "id": "msbluyf5ksr7t",
+      "date": "2026-08-02",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم التواصل مع شركة وى لتشغيل الانترنت الخاص بمكتب المبيعات",
+      "createdAt": "2026-08-02T09:35:59.681Z"
+    },
+    {
+      "id": "msblvje0lh7wn",
+      "date": "2026-08-02",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم الدخول anydesk مع مهندس تصنيع لتفعيل حزمة الاوفيس",
+      "createdAt": "2026-08-02T09:36:26.856Z"
+    },
+    {
+      "id": "msbm2yzu1o46u",
+      "date": "2026-08-02",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل بالك اب للاب توب فى الماركتينج و تم تنزنسخة ويندوز و التعريفات",
+      "createdAt": "2026-08-02T09:42:13.674Z"
+    },
+    {
+      "id": "msbm34f6it3kx",
+      "date": "2026-08-02",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم استبدال لاب توب لوجود مشكلة فى الفريم و نقل الهارد من لاب توب الي لاب اخر و تشغيله",
+      "createdAt": "2026-08-02T09:42:20.706Z"
+    },
+    {
+      "id": "msbm3zyspf1mp",
+      "date": "2026-08-02",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم التواصل مع شركة اورانج و التأكد ان الانترنت الخاص بمصنع العاشر يعمل و يحتاج لخطوه تنشطيه فقط",
+      "createdAt": "2026-08-02T09:43:01.588Z"
+    },
+    {
+      "id": "msbvxcfa74tk1",
+      "date": "2026-08-02",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تنظيف و تعديل ملفات النسخة فى لاب توب فى قسم الحسابات",
+      "createdAt": "2026-08-02T14:17:47.302Z"
+    },
+    {
+      "id": "msbvy130kyt9m",
+      "date": "2026-08-02",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تنسيق اجتماع مع شركة اورانج لشراء خطوط جديده",
+      "createdAt": "2026-08-02T14:18:19.260Z"
+    },
+    {
+      "id": "mscwqpj0n4d9f",
+      "date": "2026-08-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "دخول مع جهاز من قسم الاتش ار لتعريف الطبعه",
+      "createdAt": "2026-08-03T07:28:23.484Z"
+    },
+    {
+      "id": "msd4hjilc8tom",
+      "date": "2026-08-03",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم صيانة عدد 2 جهاز PC فى المكتب الفني",
+      "createdAt": "2026-08-03T11:05:12.717Z"
+    },
+    {
+      "id": "msd4ie32nm0mz",
+      "date": "2026-08-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم التواصل مع عدة موردين بخصوص عرض سعر لكاميرات مصنع العاشر الايجار",
+      "createdAt": "2026-08-03T11:05:52.334Z"
+    },
+    {
+      "id": "mselgfya4dx8e",
+      "date": "2026-08-04",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "زيارة مصنع 2 العاشر لمتابعة اعمال الكاميرات الخاصة بالسور و توفير سلك و كاميرات لتركيب كاميرات المخزن",
+      "createdAt": "2026-08-04T11:48:01.090Z"
+    },
+    {
+      "id": "mselhbauxhiaw",
+      "date": "2026-08-04",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تعريف اجهزة المكتب الفنى عدد 4 اجهزة على جهاز السيرفير",
+      "createdAt": "2026-08-04T11:48:41.718Z"
+    },
+    {
+      "id": "msellzs22t3ff",
+      "date": "2026-08-04",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "دخول anydesk مع جهاز من قسم الحسابات لفحص عدم تشغيل موقع فواتير",
+      "createdAt": "2026-08-04T11:52:20.066Z"
+    },
+    {
+      "id": "msewisln82kzr",
+      "date": "2026-08-04",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عقد اجتماع مع شركة CoreAck برفقة اللواء ابراهيم دياب",
+      "createdAt": "2026-08-04T16:57:46.571Z"
+    },
+    {
+      "id": "msfvlitymcrp3",
+      "date": "2026-08-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل دقائق دولى لرقم  01126820606",
+      "createdAt": "2026-08-05T09:19:40.438Z"
+    },
+    {
+      "id": "msfvncm1qkkpb",
+      "date": "2026-08-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم مراجعة الكاميرات للمكتب الفنى",
+      "createdAt": "2026-08-05T09:21:05.689Z"
+    },
+    {
+      "id": "msg1dt8d8c555",
+      "date": "2026-08-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافية للروتر الخاص بمصنع العاشر",
+      "createdAt": "2026-08-05T12:01:38.365Z"
+    },
+    {
+      "id": "msg1e93sok1q9",
+      "date": "2026-08-05",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تعريف الشبكة على اجهزة المكتب الفني",
+      "createdAt": "2026-08-05T12:01:58.936Z"
+    },
+    {
+      "id": "msg1u8e0h82sj",
+      "date": "2026-08-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه الى الرقم  1103887734\nانترنت",
+      "createdAt": "2026-08-05T12:14:24.504Z"
+    },
+    {
+      "id": "msg1vj6oq8rs5",
+      "date": "2026-08-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم رفع باقة 01129247787\nبطلب من المهندس اسلم",
+      "createdAt": "2026-08-05T12:15:25.152Z"
+    },
+    {
+      "id": "mshek7srvku50",
+      "date": "2026-08-06",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "دخول Anydesk على جهاز الحسابات لتعديل بعض الاشياء فى حزمة الاوفيس",
+      "createdAt": "2026-08-06T10:58:18.363Z"
+    },
+    {
+      "id": "msheor13otchx",
+      "date": "2026-08-06",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل اكسيسز على جميع ابواب الادوار من قبل قسم الIT",
+      "createdAt": "2026-08-06T11:01:49.911Z"
+    },
+    {
+      "id": "mslsp8gx6d0ib",
+      "date": "2026-08-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تشغيل خط موقف 01126824244",
+      "createdAt": "2026-08-09T12:45:11.841Z"
+    },
+    {
+      "id": "mslsr5iw7fn0v",
+      "date": "2026-08-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم 5 خطوط اورنج لشركة Industro Mart",
+      "createdAt": "2026-08-09T12:46:41.336Z"
+    },
+    {
+      "id": "mslsrrcfvhzup",
+      "date": "2026-08-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لقسم الحسابات كريم ابو القاسم",
+      "createdAt": "2026-08-09T12:47:09.615Z"
+    },
+    {
+      "id": "mslss4273t1fk",
+      "date": "2026-08-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لقسم الحسابات عبد الرحمن شربيني",
+      "createdAt": "2026-08-09T12:47:26.095Z"
+    },
+    {
+      "id": "mslssk17wb1as",
+      "date": "2026-08-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "ارسال ميل عروض سعر لكاميرات العاشر الايجار",
+      "createdAt": "2026-08-09T12:47:46.795Z"
+    },
+    {
+      "id": "mslssz7tho1k5",
+      "date": "2026-08-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "ارسال و عمل شيت طلبات مشتريات الشهريه",
+      "createdAt": "2026-08-09T12:48:06.473Z"
+    },
+    {
+      "id": "msm3ste5tqk31",
+      "date": "2026-08-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تسليم هارد ٥٠٠ hdd للمهندس محمد شافعي",
+      "createdAt": "2026-08-09T17:55:54.701Z"
+    },
+    {
+      "id": "msm3tdctfu3g6",
+      "date": "2026-08-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تسليم عدد ٢ كابل ثلاثي لقسم الماكتينج",
+      "createdAt": "2026-08-09T17:56:20.573Z"
+    },
+    {
+      "id": "msn0sh3kecopj",
+      "date": "2026-08-10",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم تركيب كاميرا مكتب المهندس احمد شوقي فى مصنع العاشر",
+      "createdAt": "2026-08-10T09:19:26.096Z"
+    },
+    {
+      "id": "msofa637os0y4",
+      "date": "2026-08-10",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تشغيل خط متوقف",
+      "createdAt": "2026-08-11T08:52:52.435Z"
+    },
+    {
+      "id": "msofanla9itvd",
+      "date": "2026-08-10",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تشغيل كالون باب سمارت فى المبني الادارى",
+      "createdAt": "2026-08-11T08:53:15.118Z"
+    },
+    {
+      "id": "msofb52vdot1j",
+      "date": "2026-08-10",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم خط شركة الى سعيد مشرف حركة",
+      "createdAt": "2026-08-11T08:53:37.783Z"
+    },
+    {
+      "id": "msq5ctf1vwnbo",
+      "date": "2026-08-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافية لغفران HR",
+      "createdAt": "2026-08-12T13:50:32.173Z"
+    },
+    {
+      "id": "msq5dqtk5jzbh",
+      "date": "2026-08-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل معاينة للمصنع الايجار العاشر 2 مع مهندس الكاميرات",
+      "createdAt": "2026-08-12T13:51:15.464Z"
+    },
+    {
+      "id": "msq5e7tg5enh5",
+      "date": "2026-08-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة مكالمات دولى للمهندس احمد السيد مبيعات",
+      "createdAt": "2026-08-12T13:51:37.492Z"
+    },
+    {
+      "id": "msq5elge7ajew",
+      "date": "2026-08-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافية للأسطى شربيه",
+      "createdAt": "2026-08-12T13:51:55.166Z"
+    },
+    {
+      "id": "msq5ezo73ulvm",
+      "date": "2026-08-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لعمر HR",
+      "createdAt": "2026-08-12T13:52:13.591Z"
+    },
+    {
+      "id": "msq5fmaxnd336",
+      "date": "2026-08-12",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "دخول ميتيج اون لاين مع شركة سايبر سيكيورتى",
+      "createdAt": "2026-08-12T13:52:42.921Z"
+    },
+    {
+      "id": "msq5g5mjqjkul",
+      "date": "2026-08-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "حل مشكلة اوفيس لجهاز عبد الرحمن HR",
+      "createdAt": "2026-08-12T13:53:07.963Z"
+    },
+    {
+      "id": "msq5gxu47tg5o",
+      "date": "2026-08-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تفعيل و تشغيل الشبكة على لاب توب المخزن",
+      "createdAt": "2026-08-12T13:53:44.524Z"
+    },
+    {
+      "id": "msq5hfsies73o",
+      "date": "2026-08-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "نجربة الاجهزة الذى تم ارسالها من مصنع مؤسسة الذكاة",
+      "createdAt": "2026-08-12T13:54:07.794Z"
+    },
+    {
+      "id": "msq5i9pklobn5",
+      "date": "2026-08-11",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تفعيل و تشغيل خدمة الانترنت على شريحة السائق جرجس",
+      "createdAt": "2026-08-12T13:54:46.568Z"
+    },
+    {
+      "id": "msq5j6r5g58uc",
+      "date": "2026-08-11",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه للمهندس احمد السيد مشغل المقشطه",
+      "createdAt": "2026-08-12T13:55:29.393Z"
+    },
+    {
+      "id": "msq5jny12hhr5",
+      "date": "2026-08-11",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم حل مشكلة لاب توب عن بعد عبر الهاتف",
+      "createdAt": "2026-08-12T13:55:51.673Z"
+    },
+    {
+      "id": "msu17jknvecxn",
+      "date": "2026-08-13",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "التوجه الي مول السراج لشراء لاب توب و استلام الاجهزه من الصيانه",
+      "createdAt": "2026-08-15T07:05:32.375Z"
+    },
+    {
+      "id": "msu17ohygg2n5",
+      "date": "2026-08-13",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "التوجهه الى الادارة و استلام العهده الخاصه بالصيانة",
+      "createdAt": "2026-08-15T07:05:38.759Z"
+    },
+    {
+      "id": "msu17u7lsxhmx",
+      "date": "2026-08-13",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "الذهاب الي شراء منتاجات من دبي فون لمستر محمد منصور",
+      "createdAt": "2026-08-15T07:05:46.161Z"
+    },
+    {
+      "id": "msu19otpw0cnc",
+      "date": "2026-08-13",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "شراء شاشه للاب توب محمد خالد و تركيبها",
+      "createdAt": "2026-08-15T07:07:12.493Z"
+    },
+    {
+      "id": "msu1aket9qmf9",
+      "date": "2026-08-13",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "استرجاع الهارد الخاص بيارا بعد الاصلاح و اخذ اللاب الذي كانت تستخدمه لتسليمه الى موظف",
+      "createdAt": "2026-08-15T07:07:53.430Z"
+    },
+    {
+      "id": "msvfp0ffwnk0b",
+      "date": "2026-08-15",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم فحص مشكلة الانترنت فى مصنع العاشر 1 و 2 و تبين ان الخطوط متوقفه من الرفق القومي للأتصالات",
+      "createdAt": "2026-08-16T06:38:48.171Z"
+    },
+    {
+      "id": "msvfplmckndgz",
+      "date": "2026-08-15",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم اخذ روتر هوائي من الادارة لتشغيل مصنع 1",
+      "createdAt": "2026-08-16T06:39:15.636Z"
+    },
+    {
+      "id": "msvfpxc3l7r5u",
+      "date": "2026-08-15",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تشغيل الانترنت البديل",
+      "createdAt": "2026-08-16T06:39:30.819Z"
+    },
+    {
+      "id": "msvfqeefdfgk1",
+      "date": "2026-08-15",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "صيانة لاب توب مرسل من ادارة المبيعات",
+      "createdAt": "2026-08-16T06:39:52.935Z"
+    },
+    {
+      "id": "msx0cg6u16gtv",
+      "date": "2026-08-16",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تجديد باقة الانترنت لرقم وي , و تشغيل الانترنت فى المصنع",
+      "createdAt": "2026-08-17T09:04:40.182Z"
+    },
+    {
+      "id": "msx0daxrrn1n1",
+      "date": "2026-08-16",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "متابعة عرض سعر الكاميرات مع الادارة",
+      "createdAt": "2026-08-17T09:05:20.031Z"
+    },
+    {
+      "id": "msx0dxmpngphh",
+      "date": "2026-08-16",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم تجهيز و تشغيل لاب توب خاص بالمهندس رمضان مصنع العاشر 2",
+      "createdAt": "2026-08-17T09:05:49.441Z"
+    },
+    {
+      "id": "msx0f0cbms6ru",
+      "date": "2026-08-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم الدخول Anydesk مع مهندس محمد حمدي منصور لحل مشكلة الواتس اب",
+      "createdAt": "2026-08-17T09:06:39.612Z"
+    },
+    {
+      "id": "msx0g4cxrdj3p",
+      "date": "2026-08-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم التواصل مع المهندس حاتم لتنظيم مقابله فى مصنع العاشر  1",
+      "createdAt": "2026-08-17T09:07:31.473Z"
+    },
+    {
+      "id": "mtngamhg0ocz3",
+      "date": "2026-09-01",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-04T21:13:09.460Z"
+    },
+    {
+      "id": "mtngc4tmiwtm0",
+      "date": "2026-09-01",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم العمل مع فني الكاميرات لأيجاد السلوك و تركيب الاجهزة و التيست عليها",
+      "createdAt": "2026-09-04T21:14:19.882Z"
+    },
+    {
+      "id": "mtngmy5m5e042",
+      "date": "2026-09-01",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم حل مشكلة برنامج الاوفيس عن بعد بأستخدام Anydesk",
+      "createdAt": "2026-09-04T21:22:44.458Z"
+    },
+    {
+      "id": "mtngnydcx5dkj",
+      "date": "2026-09-01",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تركيب و تقوية شبكة الواي فاي فى منطقة الريسبشين فى مصنع 1",
+      "createdAt": "2026-09-04T21:23:31.392Z"
+    },
+    {
+      "id": "mtngoq26ad8hv",
+      "date": "2026-09-02",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العملد على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-04T21:24:07.278Z"
+    },
+    {
+      "id": "mtngscyp6fpfj",
+      "date": "2026-09-02",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم المتابعه مع فنى الكاميرات و تعديل كاميرات مخزن العاشر 1",
+      "createdAt": "2026-09-04T21:26:56.929Z"
+    },
+    {
+      "id": "mtngtw21cpq1z",
+      "date": "2026-09-02",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تعديل و تركيب الكاميرات الجديده على اجهزة الNVR",
+      "createdAt": "2026-09-04T21:28:08.329Z"
+    },
+    {
+      "id": "mtngw3k3fce2u",
+      "date": "2026-09-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم لاب توب و خط للموظف المشتريات",
+      "createdAt": "2026-09-04T21:29:51.363Z"
+    },
+    {
+      "id": "mtngwdkynlrf4",
+      "date": "2026-09-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم لاب توب و خط للموظف المشتريات الخاجيه",
+      "createdAt": "2026-09-04T21:30:04.354Z"
+    },
+    {
+      "id": "mtnh5tek6g8n2",
+      "date": "2026-09-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لغفران اتش ار",
+      "createdAt": "2026-09-04T21:37:24.764Z"
+    },
+    {
+      "id": "mtnh6b9addusy",
+      "date": "2026-09-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه مكالمات و انترنت لأية عبد الحميد",
+      "createdAt": "2026-09-04T21:37:47.902Z"
+    },
+    {
+      "id": "mtnh6tzr4nrev",
+      "date": "2026-09-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لخالد غنيم انترنت",
+      "createdAt": "2026-09-04T21:38:12.183Z"
+    },
+    {
+      "id": "mtnh73faxfsvs",
+      "date": "2026-09-03",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "عمل باقة اضافيه ليوسف تيلي سيلز نت و مكالمات",
+      "createdAt": "2026-09-04T21:38:24.406Z"
+    },
+    {
+      "id": "mtscpwr61ydvk",
+      "date": "2026-09-06",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "العمل على تعديل مشروع البوفيه",
+      "createdAt": "2026-09-08T07:31:55.026Z"
+    },
+    {
+      "id": "mtscqbuug8mgh",
+      "date": "2026-09-06",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تعديل و ترتيب شيت الارقام",
+      "createdAt": "2026-09-08T07:32:14.598Z"
+    },
+    {
+      "id": "mtscqyhwx6wif",
+      "date": "2026-09-06",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "متابعة اعمال التركيب فى مصنع 2",
+      "createdAt": "2026-09-08T07:32:43.940Z"
+    },
+    {
+      "id": "mtscrspzztk88",
+      "date": "2026-09-06",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "ارسال و توضيح موقف الكود المؤقت لباب الخزينه",
+      "createdAt": "2026-09-08T07:33:23.111Z"
+    },
+    {
+      "id": "mtscsfze13pkn",
+      "date": "2026-09-07",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تجهيز و تعريف لاب توب للأستلام على الفور",
+      "createdAt": "2026-09-08T07:33:53.258Z"
+    },
+    {
+      "id": "mtscsqzpq9w3j",
+      "date": "2026-09-07",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تعديل نظام البوفيه و العمل عليه",
+      "createdAt": "2026-09-08T07:34:07.525Z"
+    },
+    {
+      "id": "mttskrh753a8m",
+      "date": "2026-09-08",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "العمل على برنامج البوفيه",
+      "createdAt": "2026-09-09T07:43:34.939Z"
+    },
+    {
+      "id": "mttsmx4rql0q3",
+      "date": "2026-09-08",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تظبيط و ترتيب الخطوط الذي سيستلمها افراد الصيانة",
+      "createdAt": "2026-09-09T07:45:15.579Z"
+    },
+    {
+      "id": "mttso7k9i7r41",
+      "date": "2026-09-09",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم الدخول انى ديسك و عمل سيت اب لبرنامج تصميمات",
+      "createdAt": "2026-09-09T07:46:15.753Z"
+    },
+    {
+      "id": "mtymjzazmgjj5",
+      "date": "2026-09-10",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم تسليم 2 موظفين - لاب توب + موبيل + خط شركة",
+      "createdAt": "2026-09-12T16:53:51.611Z"
+    },
+    {
+      "id": "mtymkepya2v5f",
+      "date": "2026-09-10",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم تسليم الزائر الصيني خط شركة",
+      "createdAt": "2026-09-12T16:54:11.590Z"
+    },
+    {
+      "id": "mtymkzd24osx4",
+      "date": "2026-09-10",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-12T16:54:38.342Z"
+    },
+    {
+      "id": "mu0xbdrd9ii7h",
+      "date": "2026-09-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه انترنت للمهندس ممدوح و رفع باقة الانترنت للفلاشة",
+      "createdAt": "2026-09-14T07:30:38.569Z"
+    },
+    {
+      "id": "mu0xdrbyzwlut",
+      "date": "2026-09-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل زيارة لمصنع 2 لتفقد شغل الكاميرات",
+      "createdAt": "2026-09-14T07:32:29.470Z"
+    },
+    {
+      "id": "mu0xf7qhljjjw",
+      "date": "2026-09-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم الذهاب الى السنترال لتتبع طلب دخول الانترنت",
+      "createdAt": "2026-09-14T07:33:37.385Z"
+    },
+    {
+      "id": "mu11zn77gtg2u",
+      "date": "2026-09-13",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العمل على تعديل نظام البوفيه",
+      "createdAt": "2026-09-14T09:41:29.011Z"
+    },
+    {
+      "id": "mu1207ayhbwmu",
+      "date": "2026-09-14",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العمل على تعديل نظام البوفيه",
+      "createdAt": "2026-09-14T09:41:55.066Z"
+    },
+    {
+      "id": "mu120u68pq6tz",
+      "date": "2026-09-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه للمهندس محمد عبد الحميد",
+      "createdAt": "2026-09-14T09:42:24.704Z"
+    },
+    {
+      "id": "mu121tz3f1vjb",
+      "date": "2026-09-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لعمر عاطف اتش ار",
+      "createdAt": "2026-09-14T09:43:11.103Z"
+    },
+    {
+      "id": "mu3ta9xp3or5l",
+      "date": "2026-09-15",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم شحن رصيد و تجديد باقة الانترنت الاخاص بمصنع 1",
+      "createdAt": "2026-09-16T08:01:07.021Z"
+    },
+    {
+      "id": "mu3tadj26u55k",
+      "date": "2026-09-15",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم شحن رصيد و تجديد باقة الانترنت الاخاص بمصنع 1",
+      "createdAt": "2026-09-16T08:01:11.678Z"
+    },
+    {
+      "id": "mu3tagjmrx47b",
+      "date": "2026-09-15",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-16T08:01:15.586Z"
+    },
+    {
+      "id": "mu3takkehjnxq",
+      "date": "2026-09-15",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم صيانة برنتر قسم الكوليتي",
+      "createdAt": "2026-09-16T08:01:20.798Z"
+    },
+    {
+      "id": "mu83c9xsl59bz",
+      "date": "2026-09-16",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-19T07:53:41.200Z"
+    },
+    {
+      "id": "mu83cqmum6k0m",
+      "date": "2026-09-16",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال تركيب الكاميرات فى مصنع 2",
+      "createdAt": "2026-09-19T07:54:02.838Z"
+    },
+    {
+      "id": "mu83dkblxomfe",
+      "date": "2026-09-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-19T07:54:41.313Z"
+    },
+    {
+      "id": "mu83dvmhqo2t6",
+      "date": "2026-09-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال تركيب الكاميرات فى مصنع 2",
+      "createdAt": "2026-09-19T07:54:55.961Z"
+    },
+    {
+      "id": "mu83ek9jzcjxx",
+      "date": "2026-09-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تجهيز و ارسال سلك و اغراض من مصنع 1 الى مصنع 2 لأعمال التركيب",
+      "createdAt": "2026-09-19T07:55:27.895Z"
+    },
+    {
+      "id": "mu83fem12yl10",
+      "date": "2026-09-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تركيب بطارية لاب توب لعمر عادل",
+      "createdAt": "2026-09-19T07:56:07.225Z"
+    },
+    {
+      "id": "mu83fvl27k3xk",
+      "date": "2026-09-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم خط شركة لموظف صيانة",
+      "createdAt": "2026-09-19T07:56:29.222Z"
+    },
+    {
+      "id": "mudsxhxl09edn",
+      "date": "2026-09-19",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-23T07:48:52.617Z"
+    },
+    {
+      "id": "mudsyfd6n880u",
+      "date": "2026-09-19",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم عمل فحص على تسجيل الكاميرات فى الفروع",
+      "createdAt": "2026-09-23T07:49:35.946Z"
+    },
+    {
+      "id": "mudt7rl64dcca",
+      "date": "2026-09-20",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على جمع بيانات و تحديث خطوط الشركة",
+      "createdAt": "2026-09-23T07:56:51.691Z"
+    },
+    {
+      "id": "mudt8jpg6eav1",
+      "date": "2026-09-20",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-23T07:57:28.132Z"
+    },
+    {
+      "id": "mudt957mja4q2",
+      "date": "2026-09-20",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تشغيل شريحة للمهندسه مريم",
+      "createdAt": "2026-09-23T07:57:56.002Z"
+    },
+    {
+      "id": "mudta6o7d6in3",
+      "date": "2026-09-21",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم فلاشة انترنت و شريحة ل احمد صابر مدير قسم المكتب الفني",
+      "createdAt": "2026-09-23T07:58:44.551Z"
+    },
+    {
+      "id": "mudtb26ln8jrv",
+      "date": "2026-09-21",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم صيانة لاب توب المهندسه مريم",
+      "createdAt": "2026-09-23T07:59:25.389Z"
+    },
+    {
+      "id": "mudtbg6budqe7",
+      "date": "2026-09-21",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "دخول انى ديسك مع فرع السعودية",
+      "createdAt": "2026-09-23T07:59:43.523Z"
+    },
+    {
+      "id": "mudtc73xap3vn",
+      "date": "2026-09-22",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم العمل على تعديل اعدادت الانترنت فى مصنع 1",
+      "createdAt": "2026-09-23T08:00:18.429Z"
+    },
+    {
+      "id": "mudtclximbbwc",
+      "date": "2026-09-22",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم العمل على تعديل برنامج البوفيه",
+      "createdAt": "2026-09-23T08:00:37.638Z"
+    },
+    {
+      "id": "mudtd53axvlnp",
+      "date": "2026-09-22",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم لاب توب للشؤن القانونية",
+      "createdAt": "2026-09-23T08:01:02.470Z"
+    },
+    {
+      "id": "mufj8yb8qxx3p",
+      "date": "2026-09-23",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم فحص تسجيل الكاميرات فى جميع الفروع",
+      "createdAt": "2026-09-24T12:53:23.253Z"
+    },
+    {
+      "id": "mufj97mnu45a5",
+      "date": "2026-09-23",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال الكاميرات فى مصنع 2",
+      "createdAt": "2026-09-24T12:53:35.327Z"
+    },
+    {
+      "id": "mufjbfn2aajz9",
+      "date": "2026-09-24",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم الدخول انى ديسك مع فرع السعوديه لحل مشكلة ماوس باد جهاز لاب توب",
+      "createdAt": "2026-09-24T12:55:19.022Z"
+    },
+    {
+      "id": "mufjbqdf27ego",
+      "date": "2026-09-24",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم مراجعه الكاميرات على مشكلة امام المصنع",
+      "createdAt": "2026-09-24T12:55:32.931Z"
+    },
+    {
+      "id": "mufjc054tpw42",
+      "date": "2026-09-24",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمل الكاميرات فى مصنع 2",
+      "createdAt": "2026-09-24T12:55:45.592Z"
+    },
+    {
+      "id": "muidvwx1s9wji",
+      "date": "2026-09-26",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم موبيل لعم حسين صيانة",
+      "createdAt": "2026-09-26T12:46:35.365Z"
+    },
+    {
+      "id": "mul8ti18kpbs4",
+      "date": "2026-09-27",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم معالجة بصمة السعودية",
+      "createdAt": "2026-09-28T12:48:03.212Z"
+    },
+    {
+      "id": "mul8tpfsqlbuw",
+      "date": "2026-09-27",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم معالجة بصمة الامارات",
+      "createdAt": "2026-09-28T12:48:12.808Z"
+    },
+    {
+      "id": "mul8u5brdr497",
+      "date": "2026-09-28",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم معالجة بصمة الادارة و السيلز و مصنع 1 و مصنع 2",
+      "createdAt": "2026-09-28T12:48:33.399Z"
+    },
+    {
+      "id": "mupc5jwlrxfls",
+      "date": "2026-09-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تخليص و تجهيز برنامج البوفيه و جاهز على التشغيل",
+      "createdAt": "2026-10-01T09:32:29.061Z"
+    },
+    {
+      "id": "mupc5xdc16764",
+      "date": "2026-09-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تحديث و تعديل بيانات الخطوط الخاصة بشركة اتصالات",
+      "createdAt": "2026-10-01T09:32:46.512Z"
+    },
+    {
+      "id": "mupc7m51ox5hz",
+      "date": "2026-10-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم عدد 3 لاب توب لموظفين",
+      "createdAt": "2026-10-01T09:34:05.269Z"
+    },
+    {
+      "id": "mupc7vg6zqzph",
+      "date": "2026-10-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم فحص تسجيل الكاميرات",
+      "createdAt": "2026-10-01T09:34:17.334Z"
+    },
+    {
+      "id": "mupc87369xf0q",
+      "date": "2026-10-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم ارسال ميل تجديد الفواتير",
+      "createdAt": "2026-10-01T09:34:32.418Z"
+    },
+    {
+      "id": "mutvnkrt6yiyz",
+      "date": "2026-10-04",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم الدخول anydesk على جهاز لاب توب لأصلاح حزمة الاوفيس",
+      "createdAt": "2026-10-04T13:49:27.401Z"
+    },
+    {
+      "id": "mutvof67a4ssv",
+      "date": "2026-10-04",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال تركيب الكاميرات فى مصنع 2",
+      "createdAt": "2026-10-04T13:50:06.799Z"
+    },
+    {
+      "id": "mv3vtlzui307n",
+      "date": "2026-10-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تسليم عدد 2 لاب توب لموظفين جدد",
+      "createdAt": "2026-10-11T13:51:50.682Z"
+    },
+    {
+      "id": "mv3vubte49gcv",
+      "date": "2026-10-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل نسخة ويندوز و تجهيز لاب توب للموظفين",
+      "createdAt": "2026-10-11T13:52:24.146Z"
+    },
+    {
+      "id": "mv3vuwmd0wg57",
+      "date": "2026-10-06",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال مصنع العاشر 2 لتركيب الكاميرات",
+      "createdAt": "2026-10-11T13:52:51.109Z"
+    },
+    {
+      "id": "mv3vvnos243lm",
+      "date": "2026-10-06",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال الزيارة من فودافون لعمل معاينة لتركيب الانترنت",
+      "createdAt": "2026-10-11T13:53:26.188Z"
+    },
+    {
+      "id": "mv3vwbuz5zk9n",
+      "date": "2026-10-06",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على شيت تحديث البيانات الخاص بأرقام اتصالات",
+      "createdAt": "2026-10-11T13:53:57.515Z"
+    },
+    {
+      "id": "mv3vwj415z3et",
+      "date": "2026-10-07",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال مصنع العاشر 2 لتركيب الكاميرات",
+      "createdAt": "2026-10-11T13:54:06.913Z"
+    },
+    {
+      "id": "mv3vx56ptyv2a",
+      "date": "2026-10-07",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على شيت تحديث البيانات الخاص بأرقام اتصالات",
+      "createdAt": "2026-10-11T13:54:35.521Z"
+    },
+    {
+      "id": "mv3vy57qo4a7r",
+      "date": "2026-10-11",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم تصليح و صيانة جهاز مكنة خاص بعميل و التأكد انه يعمل بشكل جيد",
+      "createdAt": "2026-10-11T13:55:22.214Z"
+    },
+    {
+      "id": "mv3vzdkvatnpz",
+      "date": "2026-10-11",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل طلب شراء لعدد 2 لاب توب",
+      "createdAt": "2026-10-11T13:56:19.711Z"
+    },
+    {
+      "id": "mv3vzri8rcf40",
+      "date": "2026-10-11",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل طلب شراء لمستلزمات قسم الIT",
+      "createdAt": "2026-10-11T13:56:37.760Z"
+    },
+    {
+      "id": "mv6ehx1u3k80y",
+      "date": "2026-10-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لعمر اتش ار",
+      "createdAt": "2026-10-13T08:10:10.194Z"
+    },
+    {
+      "id": "mv6eijcygk1os",
+      "date": "2026-10-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل خدمة دولى و وضع ليميت 100 ج لمستر محمد ماهر CFO",
+      "createdAt": "2026-10-13T08:10:39.106Z"
+    },
+    {
+      "id": "mv6ej4w6nvite",
+      "date": "2026-10-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لمحمد مجدي",
+      "createdAt": "2026-10-13T08:11:07.014Z"
+    },
+    {
+      "id": "mv6ejp391zy6p",
+      "date": "2026-10-12",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة مصنع 2 فى تركيب الكاميرات",
+      "createdAt": "2026-10-13T08:11:33.189Z"
+    },
+    {
+      "id": "mv6fnbl3bkxqh",
+      "date": "2026-10-13",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لأحمد طارق مبيعات",
+      "createdAt": "2026-10-13T08:42:21.927Z"
+    },
+    {
+      "id": "mv6fobccxbzzg",
+      "date": "2026-10-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تجديد باقة تجوال للمهندس عدنان و احمد على",
+      "createdAt": "2026-10-13T08:43:08.268Z"
+    },
+    {
+      "id": "mv6iag4xuo6l5",
+      "date": "2026-10-13",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه للمهندس محمد عبد الحميد",
+      "createdAt": "2026-10-13T09:56:20.145Z"
+    },
+    {
+      "id": "mv7x8u21l5l67",
+      "date": "2026-10-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه للمهندس احمد السيد شحاته",
+      "createdAt": "2026-10-14T09:42:45.289Z"
+    },
+    {
+      "id": "mv86rel9dnlon",
+      "date": "2026-10-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تنظيف جهاز الحسابات الخاص بدولة الامارات من الهجوم التى تعرض له",
+      "createdAt": "2026-10-14T14:09:08.253Z"
+    },
+    {
+      "id": "mv86s2t5vkx1i",
+      "date": "2026-10-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم صيانة جهاز اللاب توب الخاص بمكتب الامان مصنع العاشر 1",
+      "createdAt": "2026-10-14T14:09:39.641Z"
+    },
+    {
+      "id": "mv86sgq6vjyli",
+      "date": "2026-10-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال تركيب الكاميرات فى مصنع 2 العاشر",
+      "createdAt": "2026-10-14T14:09:57.678Z"
+    },
+    {
+      "id": "mv86t72h220ne",
+      "date": "2026-10-14",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم فحص اجهزة الكاميرات فى وحدات التخزين و التأكد انها تعمل بشكل جيد",
+      "createdAt": "2026-10-14T14:10:31.817Z"
+    },
+    {
+      "id": "mvc5x5x837hwu",
+      "date": "2026-10-15",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم تجهيز و تحضير لاب توب لموظف جديد",
+      "createdAt": "2026-10-17T08:56:42.044Z"
+    },
+    {
+      "id": "mvc5ye5q7qj64",
+      "date": "2026-10-15",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل صيانة لاب توب و لم تتم لأن البورده قاطعه باور و يجب دخول اللاب الى الصيانة",
+      "createdAt": "2026-10-17T08:57:39.374Z"
+    },
+    {
+      "id": "mvc5ywf6xrcv5",
+      "date": "2026-10-15",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل امر تركيب خدمة ميكرويف فودافون فى مصنع 1",
+      "createdAt": "2026-10-17T08:58:03.042Z"
+    },
+    {
+      "id": "mvggha55510k1",
+      "date": "2026-10-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل طلب تنفيذ تركيب خدمة فودافون الانترنت فى مصنع 1",
+      "createdAt": "2026-10-20T09:03:21.497Z"
+    },
+    {
+      "id": "mvgghugnwr6ku",
+      "date": "2026-10-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "العمل على تحديث بيانات الارقام الخاصه بشركة اتصالات",
+      "createdAt": "2026-10-20T09:03:47.831Z"
+    },
+    {
+      "id": "mvggic3xkcs6h",
+      "date": "2026-10-17",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "مراجعة اعمال تركيب الكاميرات فى مصنع 2",
+      "createdAt": "2026-10-20T09:04:10.701Z"
+    },
+    {
+      "id": "mvggixe0lswvk",
+      "date": "2026-10-18",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تفعيل باقة دولى لخالد السيلز",
+      "createdAt": "2026-10-20T09:04:38.280Z"
+    },
+    {
+      "id": "mvggj8e5yc2c0",
+      "date": "2026-10-18",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "رفع باقة شريحة سيلز",
+      "createdAt": "2026-10-20T09:04:52.541Z"
+    },
+    {
+      "id": "mvggjjh78cppx",
+      "date": "2026-10-18",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "العمل على تحديث بيانات الارقام الخاصه بشركة اتصالات",
+      "createdAt": "2026-10-20T09:05:06.907Z"
+    },
+    {
+      "id": "mvggjva07do35",
+      "date": "2026-10-18",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة اعمال تركيب الكاميرات فى مصنع 2 العاشر",
+      "createdAt": "2026-10-20T09:05:22.200Z"
+    },
+    {
+      "id": "mvggkj8dqvwvi",
+      "date": "2026-10-19",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تجديد باقة تجوال للمهندس عدنان",
+      "createdAt": "2026-10-20T09:05:53.245Z"
+    },
+    {
+      "id": "mvggl963y8w0m",
+      "date": "2026-10-19",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "ذهاب زيارة لمصنع 2 لمتابعة اعمال تركيب الكاميرات",
+      "createdAt": "2026-10-20T09:06:26.859Z"
+    },
+    {
+      "id": "mvggldr9q3qpv",
+      "date": "2026-10-19",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "العمل على تحديث بيانات الارقام الخاصه بشركة اتصالات",
+      "createdAt": "2026-10-20T09:06:32.805Z"
+    },
+    {
+      "id": "mvnpjoly81tcd",
+      "date": "2026-10-20",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "العمل على تحديث بيانات خطوط اتصالات",
+      "createdAt": "2026-10-25T10:51:33.334Z"
+    },
+    {
+      "id": "mvnpk8dmma1v0",
+      "date": "2026-10-20",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "مقابله مع شركة فودافون لأستكمال عقد الانترنت لمصنع 1",
+      "createdAt": "2026-10-25T10:51:58.954Z"
+    },
+    {
+      "id": "mvnpl50789tre",
+      "date": "2026-10-21",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل فحص على وحدات التخزين للكاميرات فى جميع الفروع",
+      "createdAt": "2026-10-25T10:52:41.239Z"
+    },
+    {
+      "id": "mvnplyect5gxa",
+      "date": "2026-10-21",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل استبدال لهارد لاب توب محمد خالد مشتريات",
+      "createdAt": "2026-10-25T10:53:19.332Z"
+    },
+    {
+      "id": "mvnpn2bvrl3j2",
+      "date": "2026-10-22",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل باقة اضافيه لخط مصطفي صبيح امين مخزن مصنع 1",
+      "createdAt": "2026-10-25T10:54:11.083Z"
+    },
+    {
+      "id": "mvnpneoe6mqwd",
+      "date": "2026-10-22",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تحديث بيانات خطوط اتصالات",
+      "createdAt": "2026-10-25T10:54:27.086Z"
+    },
+    {
+      "id": "mvnpo1zdpo334",
+      "date": "2026-10-25",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل صيانة لجهاز لاب توب الخاص برحمه ايهاب",
+      "createdAt": "2026-10-25T10:54:57.289Z"
+    },
+    {
+      "id": "mvnpowolhlrdr",
+      "date": "2026-10-25",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم عمل تحديث لحزمة ميكروسوفت اوفيس للأب أ علاء فى قسم المبيعات",
+      "createdAt": "2026-10-25T10:55:37.077Z"
+    },
+    {
+      "id": "mvtgdnjla7125",
+      "date": "2026-10-26",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "متابعة اعمال التركيب فى مصنع العاشر 2",
+      "createdAt": "2026-10-29T11:21:32.529Z"
+    },
+    {
+      "id": "mvtgdyb9gc455",
+      "date": "2026-10-26",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "العمل على تحديث بيانات خطوط اتصالات",
+      "createdAt": "2026-10-29T11:21:46.485Z"
+    },
+    {
+      "id": "mvtgf0640139g",
+      "date": "2026-10-27",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "معالجة بصمة الامارات و السعودية و كل مكاتب الادارة و المصانع",
+      "createdAt": "2026-10-29T11:22:35.548Z"
+    },
+    {
+      "id": "mvtgg9fl244dx",
+      "date": "2026-10-27",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم مراجعة كل وحدات التخزين الذى تخص الكاميرات و التأكد انها تعمل بشكل جيد",
+      "createdAt": "2026-10-29T11:23:34.209Z"
+    },
+    {
+      "id": "mvtggl2gfqnd3",
+      "date": "2026-10-27",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل نسخة ويندوز لجهاز لاب توب",
+      "createdAt": "2026-10-29T11:23:49.288Z"
+    },
+    {
+      "id": "mvtghc950s649",
+      "date": "2026-10-28",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم ارسال بصمة الحضور و الانصراف الى الاتش ار",
+      "createdAt": "2026-10-29T11:24:24.521Z"
+    },
+    {
+      "id": "mvtgi1i4k6drl",
+      "date": "2026-10-28",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم اضافة كاميرا فى غرفة اللبس الخاصه بالعمال فى مصنع 1 و كاميرا فى الممر الخارجي",
+      "createdAt": "2026-10-29T11:24:57.244Z"
+    },
+    {
+      "id": "mvtgioz52b6k0",
+      "date": "2026-10-28",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تعليق و تشغيل الكاميرات على شاشة فى مكتب الامن فى مصنع 1",
+      "createdAt": "2026-10-29T11:25:27.665Z"
+    },
+    {
+      "id": "mvtgixlhk80c7",
+      "date": "2026-10-28",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تركيب و توصيل البصمة على الانترنت",
+      "createdAt": "2026-10-29T11:25:38.837Z"
+    },
+    {
+      "id": "mvz2rubc3kaf4",
+      "date": "2026-10-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على عمل كيسه سيرفير لمصنع 2",
+      "createdAt": "2026-11-02T09:47:16.920Z"
+    },
+    {
+      "id": "mvz2sd9gvtc9d",
+      "date": "2026-10-29",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم توصيل بصمة مصنع 2 على الانترنت",
+      "createdAt": "2026-11-02T09:47:41.476Z"
+    },
+    {
+      "id": "mvzcuotrgpt83",
+      "date": "2026-11-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم ارسال ميل شحن انترنت الشركة",
+      "createdAt": "2026-11-02T14:29:25.935Z"
+    },
+    {
+      "id": "mvzcv18fkz3x2",
+      "date": "2026-11-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم التواصل مع شركة الصفا لعمل عرض سعر اخر",
+      "createdAt": "2026-11-02T14:29:42.015Z"
+    },
+    {
+      "id": "mvzcvibszes4d",
+      "date": "2026-11-01",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تعديل كيسة السيرفير الخاصه بمصنع 2",
+      "createdAt": "2026-11-02T14:30:04.168Z"
+    },
+    {
+      "id": "mvzcwkoqvvwmn",
+      "date": "2026-11-02",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل صيانة للاب توب الخاص بموظف المبيعات محمد يحيي",
+      "createdAt": "2026-11-02T14:30:53.882Z"
+    },
+    {
+      "id": "mvzcx6je2msai",
+      "date": "2026-11-02",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم العمل على تحديث بيانات خطوط شركة اتصالات",
+      "createdAt": "2026-11-02T14:31:22.202Z"
+    },
+    {
+      "id": "mw6hrwiz0nucp",
+      "date": "2026-11-03",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل تقاير الكاميرات و فحص مدة التسجيل",
+      "createdAt": "2026-11-07T14:21:37.259Z"
+    },
+    {
+      "id": "mw6hsn44tdu55",
+      "date": "2026-11-03",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل صيانة لجهاز المهندس احمد شوقى و سيتم استكمال الصيانة",
+      "createdAt": "2026-11-07T14:22:11.716Z"
+    },
+    {
+      "id": "mw6htxqspq695",
+      "date": "2026-11-04",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم سحب فيديو من كاميرات مصنع واحد و ارساله الى الطلاب المتخصيصين فى مشروع الكاميرات الAI",
+      "createdAt": "2026-11-07T14:23:12.149Z"
+    },
+    {
+      "id": "mw6huj12f2mec",
+      "date": "2026-11-04",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل فحص على الكاميرات فى جميع الفروع و التسجيلات",
+      "createdAt": "2026-11-07T14:23:39.734Z"
+    },
+    {
+      "id": "mw6hv0oaculn4",
+      "date": "2026-11-05",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "تم عمل صيانة لجهاز المهندس احمد شوقي",
+      "createdAt": "2026-11-07T14:24:02.602Z"
+    },
+    {
+      "id": "mw6hvsctw06d5",
+      "date": "2026-11-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم تحضير و تجهيز عدد 2 لاب توب للعمل",
+      "createdAt": "2026-11-07T14:24:38.477Z"
+    },
+    {
+      "id": "mw6hws3n5udlb",
+      "date": "2026-11-05",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم التأكد ان تم شحن الانترنت فى جميع فروع الشركة فى مصر",
+      "createdAt": "2026-11-07T14:25:24.803Z"
+    },
+    {
+      "id": "mw6hxqmxzrq0i",
+      "date": "2026-11-07",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة حركة شراء اللابات و ارسال ميل الى المشتريات",
+      "createdAt": "2026-11-07T14:26:09.561Z"
+    },
+    {
+      "id": "mw6hxqrxqmiyj",
+      "date": "2026-11-07",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم متابعة حركة شراء اللابات و ارسال ميل الى المشتريات",
+      "createdAt": "2026-11-07T14:26:09.741Z"
+    },
+    {
+      "id": "mw6hy82x4wz1t",
+      "date": "2026-11-07",
+      "category": "دعم فني",
+      "employeeId": null,
+      "description": "تم عمل جميع التقارير و ارسالها الى الادارة",
+      "createdAt": "2026-11-07T14:26:32.169Z"
+    },
+    {
+      "id": "mw7r8e4dhu0vn",
+      "date": "2026-11-08",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تسليم جهاز لاب توب للموظف عبد المنعم فى مصنع 2",
+      "createdAt": "2026-11-08T11:34:09.277Z"
+    },
+    {
+      "id": "mw7ysp7zk6rq7",
+      "date": "2026-11-08",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تم عمل تحديث بيانات لعدد من الخطوط",
+      "createdAt": "2026-11-08T15:05:54.095Z"
+    },
+    {
+      "id": "mwaspgw7up24s",
+      "date": "2026-11-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تجديد باقة لأحمد طارق المبيعات",
+      "createdAt": "2026-11-10T14:38:44.167Z"
+    },
+    {
+      "id": "mwaspnez6tlqg",
+      "date": "2026-11-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تجديد باقة لمحمد الشامخ",
+      "createdAt": "2026-11-10T14:38:52.619Z"
+    },
+    {
+      "id": "mwaspwkkwvgv6",
+      "date": "2026-11-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تجديد باقة لعبد الرحمن هاني مشتريات",
+      "createdAt": "2026-11-10T14:39:04.484Z"
+    },
+    {
+      "id": "mwasq4uwyds4p",
+      "date": "2026-11-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تجديد باقة لأحمد منصور",
+      "createdAt": "2026-11-10T14:39:15.224Z"
+    },
+    {
+      "id": "mwasqludw06o6",
+      "date": "2026-11-09",
+      "category": "أخرى",
+      "employeeId": null,
+      "description": "تجديد باقة ل على الاوبرشن صيانة",
+      "createdAt": "2026-11-10T14:39:37.237Z"
+    },
+    {
+      "id": "mwasr1orvrmau",
+      "date": "2026-11-09",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "صيانة لاب توب المهندس احمد شوقي تحويله من ماك الى ويندوز",
+      "createdAt": "2026-11-10T14:39:57.771Z"
+    },
+    {
+      "id": "mwasrwdkxukb8",
+      "date": "2026-11-10",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "تنزيل و تسطيب برنامج كوريل درو لأحمد منصور علي اللاب توب",
+      "createdAt": "2026-11-10T14:40:37.544Z"
+    },
+    {
+      "id": "mwasse8h1v4yb",
+      "date": "2026-11-10",
+      "category": "تنصيب برامج",
+      "employeeId": null,
+      "description": "مطالبة فودافون و اتصالات بعرض سعر لخطوط خاصه بنظام الكول سنتر",
+      "createdAt": "2026-11-10T14:41:00.689Z"
+    },
+    {
+      "id": "mwast05uoa87q",
+      "date": "2026-11-10",
+      "category": "صيانة أجهزة",
+      "employeeId": null,
+      "description": "صيانة و تحديد عطل فى كيسه مكنه خاصة بعميل",
+      "createdAt": "2026-11-10T14:41:29.107Z"
+    },
+    {
+      "id": "mwhxuh0nmk6sx",
+      "date": "2026-11-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تجديد باقة يثرب الدعم الفني",
+      "createdAt": "2026-11-15T14:36:58.919Z"
+    },
+    {
+      "id": "mwhxujpicqyrs",
+      "date": "2026-11-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تجديد باقة عبد الرحمن هاني مشتريات محليه",
+      "createdAt": "2026-11-15T14:37:02.406Z"
+    },
+    {
+      "id": "mwhxunavx3sl2",
+      "date": "2026-11-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تجديد باقة مهندس ممدوح R&D",
+      "createdAt": "2026-11-15T14:37:07.063Z"
+    },
+    {
+      "id": "mwhxur6oxa4cu",
+      "date": "2026-11-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تجديد باقة عمر HR",
+      "createdAt": "2026-11-15T14:37:12.096Z"
+    },
+    {
+      "id": "mwhxutpxwnexx",
+      "date": "2026-11-11",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تم تجديد باقة م عمرو بدران HR",
+      "createdAt": "2026-11-15T14:37:15.381Z"
+    },
+    {
+      "id": "mwhxykh574jyz",
+      "date": "2026-11-12",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "تجديد باقة لمحمد الشامخ الصيانة",
+      "createdAt": "2026-11-15T14:40:10.025Z"
+    },
+    {
+      "id": "mwhxz59xa2rg0",
+      "date": "2026-11-12",
+      "category": "شبكات",
+      "employeeId": null,
+      "description": "حل مشكلة عن بعض فى فرع الامارات",
+      "createdAt": "2026-11-15T14:40:36.981Z"
+    }
+  ]
+}
